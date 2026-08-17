@@ -28,7 +28,7 @@ export function AttentionSection() {
       badge: "Lựa chọn 3 — KHUYÊN DÙNG",
       title: "AI Creator System",
       cost: `Chỉ ${c.price} VNĐ (Tổng giá trị ${c.value})`,
-      desc: "Sở hữu toàn bộ 4 Cấp độ AI Creator + Bộ 50+ Mega Prompt Video + Agent Phân Tích Video + Agent Sửa Phụ Đề + Template Landing Page + Cộng đồng Skool trọn đời.",
+      desc: "Nhận bàn giao 3 Cỗ Máy AI đã lắp ráp sẵn: Agent sửa phụ đề CapCut + Hệ thống thu tiền VietQR tự động + 50+ Mega Prompt bắt trend. Kèm Cộng đồng Skool trọn đời + Thầy Việt đồng hành 1-1.",
       isBest: true,
       tag: "🏆 Tối Ưu Nhất"
     }

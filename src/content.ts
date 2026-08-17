@@ -136,18 +136,19 @@ export const DEFAULT_CONTENT: PageContent = {
   value: "12.990.000",
 
   // ── Hero ──
-  heroBadge: "🤖 DÀNH CHO CREATOR, FREELANCER VÀ CHỦ KINH DOANH MUỐN AI LÀM VIỆC THAY MÌNH",
-  heroHeadline1: "NGỪNG LÀM THỦ CÔNG.",
-  heroHeadline2: "Để AI Làm 80% — Bạn Chỉ Cần Xuất Hiện & Sáng Tạo.",
+  heroBadge: "🔥 CHO 100 CREATOR ĐẦU TIÊN MUỐN AI LÀM THAY 80% CÔNG VIỆC VIDEO",
+  heroHeadline1: "NGỪNG CÀY CUỐC THỦ CÔNG & KIỆT SỨC.",
+  heroHeadline2: "Sở Hữu 3 Cỗ Máy AI Làm Thay Bạn — Ngay Hôm Nay.",
   heroPoem: [
-    "Không còn vắt óc viết kịch bản,",
-    "AI xuất phân cảnh — bạn chỉ cần quay."
+    "Rút ngắn 5 tiếng hậu kỳ mỗi video.",
+    "Cào kịch bản trend trong 15 phút.",
+    "Thiết lập 1 lần hệ thống Web thu tiền tự động 24/7."
   ],
-  heroAccentLine: "Bạn không cần biết code, không cần học lập trình. Chỉ cần biết cách ra lệnh đúng — AI sẽ viết kịch bản, sửa phụ đề, phân tích đối thủ, thậm chí dựng cả web bán hàng cho bạn.",
-  heroSub: "Khóa học duy nhất tại Việt Nam dạy bạn xây dựng Hệ thống Agent AI riêng cho nghề làm video — từ con số 0 đến khi AI tự động vận hành 80% công việc sáng tạo nội dung.",
-  heroCta: "SỞ HỮU HỆ THỐNG AI RIÊNG — CHỈ 499K →",
+  heroAccentLine: "Nhận Trọn 3 Hệ Thống AI Làm Sẵn 80% — 'Cắm Là Chạy'",
+  heroSub: "Không học lý thuyết suông. Đi thẳng vào bản chất bằng câu hỏi sắc bén và nhận bàn giao ngay 3 cỗ máy đã được xử lý toàn bộ logic phức tạp:",
+  heroCta: "SỞ HỮU 3 CỖ MÁY AI — CHỈ 499K →",
   heroVideoYoutubeId: "",
-  heroSubPrice: "Học Online trọn đời — Trọn gói 499.000đ (Thầy Việt đồng hành 1-1)",
+  heroSubPrice: "Phí cam kết cho 100 Tester đầu tiên — Thầy Việt đồng hành 1-1",
 
   // ── Pain ──
   painLabel: "SỰ THẬT VỀ NGƯỜI LÀM VIDEO HIỆN NAY",
@@ -163,8 +164,8 @@ export const DEFAULT_CONTENT: PageContent = {
   painConclusion: "",
 
   // ── Attention ──
-  attentionLabel: "KHOẢNG CÁCH VÔ HÌNH",
-  attentionHeading: "Sự khác biệt giữa 'Dùng AI' và 'Sai Khiến AI'",
+  attentionLabel: "BẠN ĐANG CHỌN CÁCH NÀO?",
+  attentionHeading: "3 lựa chọn để bắt kịp làn sóng AI — chỉ 1 cách thực sự hiệu quả.",
   attentionPara: "90% Creator dừng lại ở mức hỏi ChatGPT vài câu. 10% còn lại xây hệ thống AI làm việc thay mình 24/7. Bạn muốn ở nhóm nào?",
   attentionItems: [
     {
@@ -297,22 +298,22 @@ export const DEFAULT_CONTENT: PageContent = {
   ],
 
   // ── Roadmap ──
-  roadmapLabel: "LỘ TRÌNH 4 TUẦN THỰC CHIẾN",
-  roadmapHeading: "Không lý thuyết suông. Mỗi bài học XONG → ÁP DỤNG NGAY cho kênh video.",
+  roadmapLabel: "LỘ TRÌNH 4 BƯỚC THỰC CHIẾN",
+  roadmapHeading: "Lộ Trình 4 Bước: Mỗi Bước Xong = 1 Cỗ Máy Chạy Được.",
   roadmapPreviewHeading: "Xem thử 1 bài học mẫu",
   roadmapPreviewDesc: "Đây là video thực tế bên trong chương trình — trực quan, thực chiến, không lý thuyết suông.",
   roadmapIframeUrl: "",
-  roadmapChaptersHeading: "4 Tuần chinh phục từ 'Gõ ChatGPT' đến 'Xây Hệ Thống AI Riêng':",
+  roadmapChaptersHeading: "4 Bước chinh phục từ 'Gõ ChatGPT' đến 'Xây Hệ Thống AI Riêng':",
   stages: [
-    { n: "Tuần 1", title: "🧠 NỀN TẢNG — Thuần Hóa AI", desc: "Prompt Engineering từ cơ bản đến nâng cao. Cách đặt vai trò, ngữ cảnh, ràng buộc output. Biến ChatGPT/Gemini từ 'trợ lý chung chung' thành 'chuyên gia riêng' của bạn.", sub: "Kết quả: AI viết 10 kịch bản video chất lượng trong 30 phút. Không còn output sáo rỗng." },
-    { n: "Tuần 2", title: "⚡ NÂNG CẤP — Mega Prompt & Đóng Gói", desc: "Xây Mega Prompt cá nhân hóa cho nghề video. XML structuring, placeholder, system prompt. Đóng gói toàn bộ kinh nghiệm ngành vào AI.", sub: "Kết quả: Sở hữu Bộ lệnh AI riêng — output đúng giọng văn và phong cách thương hiệu." },
-    { n: "Tuần 3", title: "🤖 AGENT — Trợ Lý AI Tự Động", desc: "Cài đặt AI Agent, xây dựng Skill tùy chỉnh. Agent phân tích video đối thủ, sửa phụ đề tự động, tạo web bán hàng. Tự động hóa 80% công việc lặp lại.", sub: "Kết quả: Agent tự phân tích 5 video đối thủ mỗi ngày — bạn chỉ đọc báo cáo và ra chiến lược." },
-    { n: "Tuần 4", title: "💰 KIẾM TIỀN — Đóng Gói Sản Phẩm Số", desc: "Tạo Chrome Extension, Landing Page tự động thanh toán VietQR. Đóng gói Prompt, Template, Khóa học mini thành sản phẩm số bán được.", sub: "Kết quả: Ra mắt 1 sản phẩm số đầu tay — có landing page + thanh toán tự động + giao hàng tự động." }
+    { n: "Bước 1", title: "🧠 NỀN TẢNG — Thuần Hóa AI", desc: "Prompt Engineering từ cơ bản đến nâng cao. Cách đặt vai trò, ngữ cảnh, ràng buộc output. Biến ChatGPT/Gemini từ 'trợ lý chung chung' thành 'chuyên gia riêng' của bạn.", sub: "Kết quả: AI viết 10 kịch bản video chất lượng trong 30 phút. Không còn output sáo rỗng." },
+    { n: "Bước 2", title: "⚡ NÂNG CẤP — Mega Prompt & Đóng Gói", desc: "Xây Mega Prompt cá nhân hóa cho nghề video. XML structuring, placeholder, system prompt. Đóng gói toàn bộ kinh nghiệm ngành vào AI.", sub: "Kết quả: Sở hữu Bộ lệnh AI riêng — output đúng giọng văn và phong cách thương hiệu." },
+    { n: "Bước 3", title: "🤖 AGENT — Trợ Lý AI Tự Động", desc: "Cài đặt AI Agent, xây dựng Skill tùy chỉnh. Agent phân tích video đối thủ, sửa phụ đề tự động, tạo web bán hàng. Tự động hóa 80% công việc lặp lại.", sub: "Kết quả: Agent tự phân tích 5 video đối thủ mỗi ngày — bạn chỉ đọc báo cáo và ra chiến lược." },
+    { n: "Bước 4", title: "💰 KIẾM TIỀN — Đóng Gói Sản Phẩm Số", desc: "Tạo Chrome Extension, Landing Page tự động thanh toán VietQR. Đóng gói Prompt, Template, Khóa học mini thành sản phẩm số bán được.", sub: "Kết quả: Ra mắt 1 sản phẩm số đầu tay — có landing page + thanh toán tự động + giao hàng tự động." }
   ],
 
   // ── Instructor ──
   instructorLabel: "NGƯỜI DẪN ĐƯỜNG",
-  instructorHeading: "Tôi từng mất hàng trăm giờ làm thủ công...\nCho đến khi xây được Hệ Thống AI riêng.",
+  instructorHeading: "Tôi từng mất hàng trăm giờ làm thủ công...\nCho đến khi xây được Hệ Thống AI\u00A0riêng.",
   instructorInitials: "NĐV",
   instructorName: "Nguyễn Đức Việt",
   instructorTitle: "Kỹ sư Bách Khoa · 15 năm Giảng viên FPT Arena · Founder Fedu.vn",
@@ -323,9 +324,9 @@ export const DEFAULT_CONTENT: PageContent = {
   ],
 
   // ── Bonus ──
-  bonusLabel: "QUÀ TẶNG ĐI KÈM KHÔNG THỂ BỎ QUA",
-  bonusHeading: "Tặng kèm trọn bộ 'Vũ khí AI' trị giá 7.990.000đ",
-  bonusSub: "Chỉ dành cho những ai đăng ký trong đợt này — không bán riêng lẻ",
+  bonusLabel: "QUÀ TẶNG CHỈ CHO 100 TESTER ĐỢT 1",
+  bonusHeading: "Tặng kèm trọn bộ 'Vũ khí AI' — không bán riêng lẻ",
+  bonusSub: "Những công cụ này bổ sung cho 3 Cỗ Máy chính, giúp bạn vận hành nhanh hơn:",
   bonusItems: [
     {
       id: "01",
@@ -355,21 +356,19 @@ export const DEFAULT_CONTENT: PageContent = {
   ],
 
   // ── Final CTA ──
-  urgencyBar: "⚠ HỌC PHÍ ƯU ĐÃI 499K SẼ TỰ ĐỘNG TĂNG KHI CỘNG ĐỒNG ĐẠT 100 THÀNH VIÊN",
+  urgencyBar: "⚠ CHỈ 499K — PHÍ CAM KẾT CHO 100 TESTER ĐẦU TIÊN TRẢI NGHIỆM CỘNG ĐỒNG SKOOL ĐỢT 1",
   ctaLabel: "// ĐĂNG KÝ THAM GIA",
-  ctaHeading: "Sẵn sàng để AI làm việc thay bạn từ ngày mai?",
-  ctaSub: "Mỗi ngày bạn chưa biết cách dùng AI đúng cách, là một ngày đối thủ đang ra thêm 3 video. Hệ thống này sẽ rút ngắn khoảng cách đó — ngay lập tức.",
+  ctaHeading: "Bạn không mua lý thuyết.\nBạn đang sở hữu trọn bộ 3 Tài Sản Vận Hành.",
+  ctaSub: "Giá 499K không phải vì rẻ — mà là phí cam kết cho 100 Tester đầu tiên trải nghiệm cộng đồng Skool đợt 1.",
   countdownLabel: "⏳ Ưu đãi Early Bird kết thúc sau:",
-  valueStackTitle: "TỔNG GIÁ TRỊ BẠN NHẬN ĐƯỢC:",
+  valueStackTitle: "3 TÀI SẢN VẬN HÀNH BẠN SỞ HỮU NGAY:",
   valueStack: [
-    { label: "Masterclass 'AI Creator System' 4 Tuần", price: "5.000.000 VNĐ" },
-    { label: "Bộ 50+ Mega Prompt cho Video", price: "1.500.000 VNĐ" },
-    { label: "Agent Phân Tích Video Tự Động", price: "2.000.000 VNĐ" },
-    { label: "Agent Sửa Phụ Đề CapCut", price: "990.000 VNĐ" },
-    { label: "Template Landing Page Tự Động", price: "1.500.000 VNĐ" },
-    { label: "Cộng đồng Skool Trọn Đời", price: "2.000.000 VNĐ" }
+    { label: "💎 Tài sản 1: Cỗ Máy Hậu Kỳ Siêu Tốc (AI Agent CapCut) — Sửa sạch 100% lỗi chính tả phụ đề tiếng Việt chỉ 3 thao tác", price: "3.990.000 VNĐ" },
+    { label: "💎 Tài sản 2: Hệ Thống Thu Tiền Xuyên Đêm (Auto-VietQR) — Template Web + Luồng tự động duyệt bill + Giao hàng lúc 2h sáng", price: "4.500.000 VNĐ" },
+    { label: "💎 Tài sản 3: Bộ Não Bắt Trend Nhân Bản — 50+ Mega Prompt bóc tách video đối thủ + Nạp nhân cách vào AI", price: "2.500.000 VNĐ" },
+    { label: "👑 Sổ Tay Bàn Giao Kỹ Thuật + Cộng đồng Skool trọn đời + Đồng hành 1-1 Thầy Việt", price: "2.000.000 VNĐ" }
   ],
-  guarantee: "⚡ Quy trình 1-Chạm: Thanh toán → Vào học NGAY LẬP TỨC trên Skool. Không form, không chờ duyệt, không gọi điện.",
+  guarantee: "👑 Mảnh ghép sinh tử đi kèm: Sổ Tay Bàn Giao Kỹ Thuật — Thầy Việt trực tiếp hướng dẫn lắp ráp 3 tài sản thành Cỗ máy in tiền của riêng bạn. Chỉ 15 phút Copy-Paste, không cần biết lập trình.",
 
   // ── Footer ──
   footerBrand: "AI CREATOR",
@@ -380,7 +379,7 @@ export const DEFAULT_CONTENT: PageContent = {
 
   blocksMeta: {
     order: ["hero", "pain", "attention", "rule", "cycle", "discovery", "solution", "skills", "midCta", "before-after", "roadmap", "instructor", "bonus", "cta", "footer"],
-    hidden: [],
+    hidden: ["rule", "cycle", "discovery", "solution", "skills", "midCta", "before-after"],
     media: {},
     custom: {},
   },

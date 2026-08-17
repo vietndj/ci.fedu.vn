@@ -21,12 +21,12 @@ export function FaqSection() {
       a: "Đó là sự khác biệt giữa Prompt cơ bản và Mega Prompt. Khóa học dạy bạn kỹ thuật nạp dữ liệu (Knowledge Base) và cá nhân hóa giọng văn (Brand Voice), giúp AI xuất bản thảo đúng 100% phong cách và chuyên môn của bạn."
     },
     {
-      q: "Tôi bận đi làm cả ngày, khóa học có mất nhiều thời gian không?",
-      a: "Khóa học thiết kế dạng Micro-learning (10-15 phút/video bài giảng). Bạn học đến đâu áp dụng thực hành ngay đến đó. Mục tiêu tối thượng của khóa là giúp bạn tiết kiệm 80% thời gian làm việc hàng ngày."
+      q: "Tôi mù công nghệ, không biết code — có làm được không?",
+      a: "Hoàn toàn được! Đã code sẵn 80% Template cho bạn. Bạn chỉ cần Copy-Paste theo hướng dẫn từng bước trong Sổ Tay Bàn Giao. Không viết 1 dòng code nào. Nếu vướng, Thầy Việt hỗ trợ 1-1 qua Zalo."
     },
     {
-      q: "Tôi có được hỗ trợ khi gặp lỗi kỹ thuật hay cài đặt Agent không?",
-      a: "Có! Bạn được tham gia cộng đồng Skool độc quyền trọn đời và có đặc quyền hỗ trợ trực tiếp 1-1 qua Zalo cùng Thầy Việt để giải đáp mọi thắc mắc trong quá trình thực hành."
+      q: "Có phí ẩn hàng tháng để chạy các Cỗ máy này không?",
+      a: "Minh bạch 100%: Hosting web (Vercel) — Miễn phí. Cộng đồng Skool — Miễn phí trọn đời. Để vận hành hệ thống, toàn bộ quy trình của chúng ta sẽ sử dụng nền tảng Google Gemini. Bạn sẽ cần sử dụng tài khoản Gemini Pro để cấp quyền cho các Agent AI có thể tự động xử lý mượt mà khối lượng công việc lớn thay bạn."
     }
   ];
 

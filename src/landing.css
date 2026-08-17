@@ -24,10 +24,10 @@
   --cl-text-muted:  #71717a;
   --cl-radius:      16px;
   --cl-radius-sm:   10px;
-  --cl-font-display:'SVN-Acta', 'Acta Display', 'Acta', Georgia, serif;
+  --cl-font-display:'Aeonik', 'Inter', system-ui, sans-serif;
   --cl-font-body:   'Aeonik', 'Inter', system-ui, sans-serif;
   --cl-font-mono:   'JetBrains Mono', monospace;
-  --cl-font-accent: 'SVN-Acta', 'Acta Display', 'Acta', Georgia, serif;
+  --cl-font-accent: 'Aeonik', 'Inter', system-ui, sans-serif;
 }
 
 /* ═══ VNCreative Utility Classes ═══════════════════════════════ */
@@ -82,9 +82,9 @@
 
 /* ═══ SECTION HEADING ══════════════════════════════════════════ */
 .cl-sh {
-  font-family: var(--cl-font-body);
+  font-family: var(--cl-font-display);
   font-size: clamp(26px, 4.2vw, 52px);
-  font-weight: 700;
+  font-weight: 500;
   line-height: 1.2;
   letter-spacing: -0.02em;
   color: var(--cl-text-base);
@@ -541,7 +541,7 @@
   right: 20px;
   font-family: var(--cl-font-display);
   font-size: 130px;
-  font-weight: 900;
+  font-weight: 500;
   line-height: 1;
   color: rgba(0, 240, 255, 0.07);
   letter-spacing: -0.06em;
@@ -576,7 +576,7 @@
 .cl-stage__title {
   font-family: var(--cl-font-display);
   font-size: clamp(20px, 2.5vw, 26px);
-  font-weight: 700;
+  font-weight: 500;
   color: var(--cl-text-base);
   margin: 0 0 14px;
   line-height: 1.2;

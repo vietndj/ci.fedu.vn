@@ -63,10 +63,10 @@ function StickyRegisterBar() {
     }}>
       <div style={{ display: "flex", flexDirection: "column", gap: 3, minWidth: 0 }}>
         <div style={{ fontSize: 13.5, fontWeight: 700, color: "var(--cl-text-base)", lineHeight: 1.25, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
-          👑 Khóa Học Online 499.000đ
+          👑 Trọn bộ 3 Tài Sản AI — 499.000đ
         </div>
         <div style={{ fontSize: 12, color: "#10b981", fontWeight: 600, display: "flex", alignItems: "center", gap: 4, whiteSpace: "nowrap" }}>
-          <span>🛡️</span> Cam kết hoàn tiền 100% trong 7 ngày
+          <span>🔥</span> Chỉ cho 100 Tester đầu tiên đợt 1
         </div>
       </div>
       <a
@@ -87,7 +87,7 @@ function StickyRegisterBar() {
         onMouseEnter={(e) => { e.currentTarget.style.opacity = "0.9"; }}
         onMouseLeave={(e) => { e.currentTarget.style.opacity = "1"; }}
       >
-        SỞ HỮU HỆ THỐNG AI 499K →
+        SỞ HỮU 3 TÀI SẢN AI 499K →
       </a>
     </div>
   );
@@ -104,51 +104,21 @@ export default function App() {
       <ParticleCanvas />
 
       {!isHidden("hero") && <HeroSection />}
-      <Div />
-
-      {!isHidden("pain") && <PainSection />}
-      <Div />
-
-      {!isHidden("attention") && <AttentionSection />}
-      <Div />
-
-      {!isHidden("rule") && <RuleSection />}
-      <Div />
-
-      {!isHidden("cycle") && <CycleSection />}
-      <Div />
-
-      {!isHidden("discovery") && <DiscoverySection />}
-      <Div />
-
-      {!isHidden("solutions") && <SolutionsSection />}
-      <Div />
-
-      {!isHidden("solution") && <SolutionSection />}
-      <Div />
-
-      {!isHidden("skills") && <SkillsSection />}
-      <Div />
-
-      {!isHidden("midCta") && <MidCtaSection />}
-      <Div />
-
-      {!isHidden("before-after") && <BeforeAfterSection />}
-      <Div />
-
-      {!isHidden("roadmap") && <RoadmapSection />}
-      <Div />
-
-      {!isHidden("instructor") && <InstructorSection />}
-      <Div />
-
-      {!isHidden("bonus") && <BonusSection />}
-      <Div />
-
-      {!isHidden("faq") && <FaqSection />}
-      <Div />
-
-      {!isHidden("cta") && <CtaSection />}
+      {!isHidden("pain") && <><Div /><PainSection /></>}
+      {!isHidden("attention") && <><Div /><AttentionSection /></>}
+      {!isHidden("rule") && <><Div /><RuleSection /></>}
+      {!isHidden("cycle") && <><Div /><CycleSection /></>}
+      {!isHidden("discovery") && <><Div /><DiscoverySection /></>}
+      {!isHidden("solutions") && <><Div /><SolutionsSection /></>}
+      {!isHidden("solution") && <><Div /><SolutionSection /></>}
+      {!isHidden("skills") && <><Div /><SkillsSection /></>}
+      {!isHidden("midCta") && <><Div /><MidCtaSection /></>}
+      {!isHidden("before-after") && <><Div /><BeforeAfterSection /></>}
+      {!isHidden("roadmap") && <><Div /><RoadmapSection /></>}
+      {!isHidden("instructor") && <><Div /><InstructorSection /></>}
+      {!isHidden("bonus") && <><Div /><BonusSection /></>}
+      {!isHidden("faq") && <><Div /><FaqSection /></>}
+      {!isHidden("cta") && <><Div /><CtaSection /></>}
 
       {!isHidden("footer") && (
         <footer className="cl-footer" style={{ borderTop: `1px solid ${t.line}`, fontFamily: t.fontBody }}>

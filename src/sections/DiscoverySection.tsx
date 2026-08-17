@@ -11,7 +11,7 @@ export function SolutionsSection() {
 
   const tabs = [
     {
-      title: "01. Lên Kịch Bản Bắt Trend",
+      title: "01. Bộ Não Bắt Trend",
       subtitle: "Quét xu hướng quốc tế & Việt Nam → Dịch tiếng Việt → Nạp góc nhìn cá nhân của bạn",
       pain: "Mất hàng giờ lướt TikTok/Reels trong vô định, thấy video nước ngoài triệu view rất hay nhưng không biết làm sao áp dụng. Tự viết kịch bản thì bí ý tưởng, copy prompt generic trên mạng thì sáo rỗng, mất chất chuyên gia.",
       solution: "AI tự động quét các video đang lên xu hướng toàn cầu và trong nước, dịch và giải thích cấu trúc viral. Sau đó nạp kiến thức, trải nghiệm và văn phong của bạn vào để xuất kịch bản 2 cột (Lời thoại + Mô tả hình ảnh) chuẩn phong cách riêng trong 3 phút.",
@@ -20,12 +20,12 @@ export function SolutionsSection() {
       rightLabel: "AI BẮT TREND RIÊNG",
       rightDesc: "Đổi trend triệu view thành kịch bản độc bản mang 100% bản sắc và chuyên môn của bạn.",
       icon: "🎯",
-      gif: "/gifs/spatial-direction.gif",
+      gif: "/gifs/mega-prompt-script.gif",
       demoBadge: "AI SCRIPT & TREND SPY",
       demoCaption: "⚡ Quét cấu trúc video viral quốc tế → Tự động xuất kịch bản phân cảnh tiếng Việt."
     },
     {
-      title: "02. Xử Lý Video Siêu Tốc",
+      title: "02. Cỗ Máy Hậu Kỳ",
       subtitle: "Chỉ rõ góc máy phân cảnh & Tự động sửa 100% phụ đề CapCut trong 1 click",
       pain: "Quay xong ngập trong đống việc vặt: ngồi nghe gõ lại từng từ phụ đề CapCut bị sai chính tả, mất cả buổi tối mỏi mắt đau lưng. Không biết chèn hình ảnh minh họa (B-roll) ở đâu để giữ chân người xem.",
       solution: "Agent AI sửa phụ đề CapCut tiếng Việt tự động chuẩn 100% dấu câu và chính tả chỉ bằng 1 cú click. Đồng thời AI gợi ý cụ thể góc máy, phân cảnh và thời điểm chèn B-roll phù hợp giúp bạn bật máy lên là quay tự tin.",
@@ -34,12 +34,12 @@ export function SolutionsSection() {
       rightLabel: "1 CLICK HOÀN TẤT",
       rightDesc: "AI dọn sạch khâu phụ đề tiếng Việt trong 10 giây, kịch bản có sẵn chỉ dẫn phân cảnh chi tiết.",
       icon: "⚡",
-      gif: "/edit-ai-promo.gif",
+      gif: "/gifs/capcut-subtitle-agent.gif",
       demoBadge: "CAPCUT SUBTITLE AGENT",
       demoCaption: "🎬 1 Click quét và sửa sạch lỗi chính tả tiếng Việt trong file phụ đề CapCut."
     },
     {
-      title: "03. Nhận Tiền Tự Động Qua QR",
+      title: "03. Thu Tiền Xuyên Đêm",
       subtitle: "Nghĩ ra bất kỳ món gì khi làm video — AI tạo trang bán hàng & mã QR trong 10 phút",
       pain: "Làm video có tương tác tốt nhưng không biết cách bán hàng. Khách hỏi mua thì phải chat tay xin số tài khoản, ngồi canh điện thoại check biến động số dư, gửi link thủ công từng người làm sót đơn và mất khách.",
       solution: "Bất kỳ sản phẩm nào bạn nghĩ ra (Ebook, khóa học mini, template, tài liệu, buổi tư vấn hay sản phẩm vật lý): AI dựng ngay Landing Page chuẩn đẹp trong 10 phút. Tích hợp sẵn cổng VietQR tự động: khách quét mã → tiền về thẳng tài khoản ngân hàng của bạn → hệ thống tự động giao hàng 24/7.",
@@ -48,7 +48,7 @@ export function SolutionsSection() {
       rightLabel: "TỰ ĐỘNG THU TIỀN 24/7",
       rightDesc: "Khách xem video → Bấm link Bio → Quét QR → Tiền về tài khoản ngay lập tức mà bạn không cần chạm tay.",
       icon: "💳",
-      gif: "/gifs/checkout-qr-demo.gif",
+      gif: "/gifs/auto-vietqr-flow.gif",
       demoBadge: "AUTO VIETQR & PUSH NOTIFICATION",
       demoCaption: "📱 Khách quét mã QR trên web → Tiền về tài khoản & Bắn thông báo về điện thoại tức thì."
     }
@@ -60,10 +60,10 @@ export function SolutionsSection() {
     <Sec maxWidth={1020}>
       <FadeIn>
         <div style={{ textAlign: "center", marginBottom: 44 }}>
-          <Label>Quy trình tự động hóa kênh video</Label>
-          <SH>Từ Ý Tưởng Đến Tiền Về Tài Khoản</SH>
+          <Label>3 CỖ MÁY BẠN NHẬN NGAY</Label>
+          <SH>3 Cỗ Máy Bạn Nhận Được Ngay Sau Khi Thanh Toán</SH>
           <p style={{ fontSize: 18, color: "var(--cl-text-muted, #888)", maxWidth: 640, margin: "-18px auto 0", lineHeight: 1.7 }}>
-            Không còn vắt óc nghĩ kịch bản sáo rỗng, cặm cụi sửa phụ đề từng câu, hay phải túc trực điện thoại check bill chuyển khoản.
+            Mỗi tab bên dưới là 1 tài sản AI đã lắp ráp sẵn — bạn chỉ cần nhận bàn giao và vận hành.
           </p>
         </div>
       </FadeIn>

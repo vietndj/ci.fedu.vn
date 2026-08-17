@@ -45,7 +45,7 @@ export function HeroSection() {
             <span style={{
               fontSize: "clamp(26px, 4.2vw, 48px)", lineHeight: 1.25,
               fontWeight: 500, letterSpacing: "-0.018em",
-              color: "var(--cl-text-base)", fontFamily: t.fontBody,
+              color: "var(--cl-text-base)", fontFamily: t.fontDisplay,
               maxWidth: "28ch", textWrap: "balance", textAlign: "center",
             }}>
               {c.heroHeadline2 || "Để AI Làm 80% — Bạn Chỉ Cần Xuất Hiện & Sáng Tạo."}
@@ -131,7 +131,7 @@ export function HeroSection() {
         }} />
         <FadeIn>
           <div className="cl-label">
-            <span style={{ opacity: 0.4 }}>// </span>Triết lý AI Creator
+            <span style={{ opacity: 0.4 }}>// </span>Luật chơi mới của Creator
           </div>
           <h2 className="cl-sh" style={{ fontFamily: t.fontDisplay }}>
             <ScrollTypewriter text={c.heroAccentLine} speed={7} />
@@ -144,46 +144,57 @@ export function HeroSection() {
           </p>
 
           <div style={{
-            display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 280px), 1fr))", gap: 24,
-            width: "100%", maxWidth: 820, margin: "48px auto 0", textAlign: "left",
+            display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 250px), 1fr))", gap: 20,
+            width: "100%", maxWidth: 960, margin: "40px auto 0", textAlign: "left",
           }}>
-            {/* Foundation 1 */}
+            {/* Cỗ máy 1 */}
             <div style={{
               background: "var(--cl-card)", border: `1px solid var(--cl-line)`, borderLeft: `3px solid var(--cl-accent)`,
-              borderRadius: t.cardRadius, padding: "clamp(20px, 5vw, 32px) clamp(16px, 4vw, 28px)", display: "flex", flexDirection: "column", gap: 12,
-              transition: "transform 0.2s ease, border-color 0.2s ease",
+              borderRadius: t.cardRadius, padding: "clamp(20px, 4vw, 24px)", display: "flex", flexDirection: "column", gap: 12,
             }}>
               <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
                 <span style={{ fontSize: 20 }}>🧠</span>
                 <span style={{ fontFamily: t.fontMono, fontSize: 12, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--cl-accent)", fontWeight: 600 }}>
-                  NỀN TẢNG 01: MEGA PROMPTING
+                  Cỗ Máy 1: Mega Prompt
                 </span>
               </div>
-              <h3 style={{ fontFamily: t.fontBody, fontSize: "clamp(19px, 5vw, 24px)", fontWeight: 700, color: "var(--cl-text-base)", margin: "4px 0 0", letterSpacing: "-0.015em" }}>
-                Ra Lệnh Chuẩn Xác
-              </h3>
-              <p style={{ fontSize: "clamp(15px, 3.8vw, 17px)", lineHeight: 1.75, color: "var(--cl-text-body)", margin: 0 }}>
-                Đóng gói toàn bộ kinh nghiệm và bản sắc riêng vào AI. Output kịch bản 2 cột chuẩn phân cảnh, không còn sáo rỗng.
+              <p style={{ fontSize: "clamp(15px, 3.8vw, 16px)", lineHeight: 1.75, color: "var(--cl-text-body)", margin: "4px 0 0" }}>
+                Đóng gói bản sắc của bạn vào AI. Tự động bắt trend, viết kịch bản 2 cột chuẩn xác, tuyệt đối không sáo rỗng.
               </p>
             </div>
 
-            {/* Foundation 2 */}
+            {/* Cỗ máy 2 */}
             <div style={{
               background: "var(--cl-card)", border: `1px solid var(--cl-line)`, borderLeft: `3px solid var(--cl-accent)`,
-              borderRadius: t.cardRadius, padding: "clamp(20px, 5vw, 32px) clamp(16px, 4vw, 28px)", display: "flex", flexDirection: "column", gap: 12,
-              transition: "transform 0.2s ease, border-color 0.2s ease",
+              borderRadius: t.cardRadius, padding: "clamp(20px, 4vw, 24px)", display: "flex", flexDirection: "column", gap: 12,
             }}>
               <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
                 <span style={{ fontSize: 20 }}>🤖</span>
                 <span style={{ fontFamily: t.fontMono, fontSize: 12, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--cl-accent)", fontWeight: 600 }}>
-                  NỀN TẢNG 02: AGENTIC WORKFLOWS
+                  Cỗ Máy 2: Agent Tự Động
                 </span>
               </div>
-              <h3 style={{ fontFamily: t.fontBody, fontSize: "clamp(19px, 5vw, 24px)", fontWeight: 700, color: "var(--cl-text-base)", margin: "4px 0 0", letterSpacing: "-0.015em" }}>
-                Tự Động Hóa 80%
-              </h3>
-              <p style={{ fontSize: "clamp(15px, 3.8vw, 17px)", lineHeight: 1.75, color: "var(--cl-text-body)", margin: 0 }}>
-                Xây dựng trợ lý ảo tự bóc tách video đối thủ, sửa phụ đề tự động, dựng landing page và đóng gói sản phẩm số.
+              <p style={{ fontSize: "clamp(15px, 3.8vw, 16px)", lineHeight: 1.75, color: "var(--cl-text-body)", margin: "4px 0 0" }}>
+                Tự động hóa 80% công việc tay chân: Bóc tách video đối thủ, tự động sửa phụ đề chuẩn xác từng giây.
+              </p>
+            </div>
+
+            {/* Cỗ máy 3 */}
+            <div style={{
+              background: "var(--cl-card)", border: `1px solid rgba(245, 158, 11, 0.4)`,
+              boxShadow: "0 8px 32px -12px rgba(245, 158, 11, 0.15)",
+              borderRadius: t.cardRadius, padding: "clamp(20px, 4vw, 24px)", display: "flex", flexDirection: "column", gap: 12,
+              position: "relative", overflow: "hidden"
+            }}>
+              <div style={{ position: "absolute", top: 0, right: 0, width: 80, height: 80, background: "var(--cl-accent)", filter: "blur(48px)", opacity: 0.25 }} />
+              <div style={{ display: "flex", alignItems: "center", gap: 10, position: "relative", zIndex: 2 }}>
+                <span style={{ fontSize: 20 }}>💰</span>
+                <span style={{ fontFamily: t.fontMono, fontSize: 12, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--cl-accent)", fontWeight: 600 }}>
+                  Trùm cuối: Thu Tiền
+                </span>
+              </div>
+              <p style={{ fontSize: "clamp(15px, 3.8vw, 16px)", lineHeight: 1.75, color: "var(--cl-text-base)", margin: "4px 0 0", position: "relative", zIndex: 2 }}>
+                Toàn bộ logic ngân hàng đã code sẵn. Chỉ 5 phút setup web, AI tự check bill và nảy số tiền vào tài khoản 24/7.
               </p>
             </div>
           </div>
