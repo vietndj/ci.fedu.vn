@@ -1,7 +1,7 @@
 import React from "react";
 import { useContent } from "../content";
 import { useTheme } from "../theme";
-import { FadeIn, Label, SH, Sec, AppYTEmbed } from "../components/ui";
+import { FadeIn, Label, SH, Sec, AppYTEmbed, Sub } from "../components/ui";
 
 export function BeforeAfterSection() {
   const c = useContent();
@@ -12,7 +12,7 @@ export function BeforeAfterSection() {
         <div style={{ textAlign: "center", marginBottom: 48 }}>
           <Label>{c.baLabel}</Label>
           <SH typed>{c.baHeading}</SH>
-          {c.baSub && <p style={{ fontSize: "clamp(15px, 3.8vw, 19px)", color: "var(--cl-text-muted, #888)", maxWidth: 560, margin: "0 auto", lineHeight: 1.75 }}>{c.baSub}</p>}
+          {c.baSub && <Sub>{c.baSub}</Sub>}
         </div>
       </FadeIn>
       <FadeIn delay={100}>

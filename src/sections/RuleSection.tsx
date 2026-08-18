@@ -1,7 +1,7 @@
 import React from "react";
 import { useContent } from "../content";
 import { useTheme } from "../theme";
-import { FadeIn, Label, SH, Sec } from "../components/ui";
+import { FadeIn, Label, SH, Sec, Sub } from "../components/ui";
 
 export function RuleSection() {
   const c = useContent();
@@ -12,9 +12,7 @@ export function RuleSection() {
         <div style={{ textAlign: "center", marginBottom: 54 }}>
           <Label>{c.ruleLabel}</Label>
           <SH typed>{c.ruleHeading}</SH>
-          <p style={{ fontSize: 18, color: "var(--cl-text-muted, #888)", maxWidth: 660, margin: "16px auto 0", lineHeight: 1.75 }}>
-            {c.rulePara}
-          </p>
+          <Sub>{c.rulePara}</Sub>
         </div>
       </FadeIn>
       <FadeIn delay={100}>

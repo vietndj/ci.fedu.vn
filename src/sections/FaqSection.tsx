@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useTheme } from "../theme";
 import { useContent } from "../content";
+import { FadeIn, Label, SH, Sec, Sub } from "../components/ui";
 
 export function FaqSection() {
   const t = useTheme();
@@ -9,53 +10,38 @@ export function FaqSection() {
 
   const faqs = [
     {
-      q: "Tôi không biết lập trình / code thì có cài đặt và dùng được AI Agent không?",
-      a: "Hoàn toàn được! Bạn không cần viết bất kỳ dòng code nào. Tất cả được hướng dẫn theo dạng 'Kéo - Thả - Cài đặt 1 Click'. Thao tác trên giao diện trực quan và bạn chỉ cần nhập lệnh bằng tiếng Việt."
+      q: "Tôi không biết lập trình / mù công nghệ thì có cài đặt và dùng được không?",
+      a: "Hoàn toàn được! Bạn không cần viết bất kỳ dòng code nào. Toàn bộ 3 công cụ đã được lắp ráp sẵn 80%, bạn chỉ việc cắm vào chạy và nhắn tin ra lệnh bằng tiếng Việt đời thường. Thầy Việt hướng dẫn chi tiết từng bước bằng video."
     },
     {
-      q: "Tôi dùng máy tính cấu hình bình thường hoặc MacBook cũ có chạy được không?",
-      a: "Được 100%. Toàn bộ mô hình AI và Agent xử lý trên nền tảng đám mây (Cloud) hoặc thông qua API, không ngốn RAM hay chip máy tính của bạn."
+      q: "Tôi dùng máy tính cấu hình bình thường hoặc máy cũ có chạy được không?",
+      a: "Được 100%. Toàn bộ mô hình xử lý trên nền tảng đám mây, không ngốn RAM hay nóng máy tính của bạn."
     },
     {
-      q: "AI viết kịch bản có bị cứng nhắc, sáo rỗng giống bài ChatGPT thông thường?",
-      a: "Đó là sự khác biệt giữa Prompt cơ bản và Mega Prompt. Khóa học dạy bạn kỹ thuật nạp dữ liệu (Knowledge Base) và cá nhân hóa giọng văn (Brand Voice), giúp AI xuất bản thảo đúng 100% phong cách và chuyên môn của bạn."
+      q: "Kịch bản AI bóc ra có tự nhiên và mang đúng phong cách của tôi không?",
+      a: "AI bóc sạch cấu trúc góc quay và lời thoại từ clip viral hay, sau đó nạp gu riêng và kiến thức của bạn vào để xuất kịch bản 2 cột chuẩn quay mang đúng bản sắc của bạn, không lo bị sáo rỗng."
     },
     {
-      q: "Tôi mù công nghệ, không biết code — có làm được không?",
-      a: "Hoàn toàn được! Đã code sẵn 80% Template cho bạn. Bạn chỉ cần Copy-Paste theo hướng dẫn từng bước trong Sổ Tay Bàn Giao. Không viết 1 dòng code nào. Nếu vướng, Thầy Việt hỗ trợ 1-1 qua Zalo."
+      q: "Trợ lý dựng video hoạt động thế nào, có phải chỉnh lại từ đầu mỗi lần làm không?",
+      a: "Không! Bạn có 2 chế độ: Chế độ 'Ăn ngay' để AI tự gọt vấp và làm phụ đề chuyển động xuất video ngay; và Chế độ 'Tùy biến theo gu' để bạn chọn kiểu chữ, cảnh trám minh họa rồi AI tự lưu làm chuẩn cho mọi video sau."
     },
     {
-      q: "Có phí ẩn hàng tháng để chạy các Cỗ máy này không?",
-      a: "Minh bạch 100%: Hosting web (Vercel) — Miễn phí. Cộng đồng Skool — Miễn phí trọn đời. Để vận hành hệ thống, toàn bộ quy trình của chúng ta sẽ sử dụng nền tảng Google Gemini. Bạn sẽ cần sử dụng tài khoản Gemini Pro để cấp quyền cho các Agent AI có thể tự động xử lý mượt mà khối lượng công việc lớn thay bạn."
+      q: "Ngoài 499k này, tôi có phải tốn thêm chi phí duy trì tài khoản hay phần mềm gì nữa không?",
+      a: "Hoàn toàn minh bạch: Toàn bộ 3 công cụ vận hành trực tiếp trên tài khoản Google chính chủ của bạn, không phải mua phần mềm lạ hay nuôi các công cụ trôi nổi đắt đỏ ngoài thị trường. Hệ thống dùng lõi Google Gemini để thực thi — bạn có thể kích hoạt gói trải nghiệm miễn phí từ chính Google để cắm vào làm ra video ngay mà chưa tốn thêm đồng nào."
     }
   ];
 
   return (
-    <section className="cl-section" style={{ background: t.bg }}>
-      <div className="cl-container">
-        <div style={{ textAlign: "center", marginBottom: 40 }}>
-          <div style={{ 
-            display: "inline-block", 
-            padding: "6px 12px", 
-            background: "rgba(255, 255, 255, 0.05)",
-            border: `1px solid ${t.line}`,
-            borderRadius: 20,
-            fontSize: 12,
-            fontWeight: 700,
-            color: t.accent,
-            marginBottom: 16,
-            letterSpacing: 1
-          }}>
-            5 CÂU HỎI THƯỜNG GẶP
-          </div>
-          <h2 className="cl-heading" style={{ fontFamily: t.fontDisplay, color: t.textBase }}>
-            "Liệu chương trình này có phù hợp với tôi không?"
-          </h2>
-          <p style={{ color: t.textMuted, marginTop: 12, fontSize: 16 }}>
-            Giải quyết 5 nỗi sợ lớn nhất đang ngăn cản bạn:
-          </p>
+    <Sec maxWidth={860} id="faq">
+      <FadeIn>
+        <div style={{ textAlign: "center", marginBottom: 44 }}>
+          <Label>5 CÂU HỎI THƯỜNG GẶP</Label>
+          <SH typed>"Liệu chương trình này có phù hợp với tôi không?"</SH>
+          <Sub>Giải quyết 5 nỗi sợ lớn nhất đang ngăn cản bạn làm video:</Sub>
         </div>
+      </FadeIn>
 
+      <FadeIn delay={100}>
         <div style={{ maxWidth: 800, margin: "0 auto", display: "flex", flexDirection: "column", gap: 12 }}>
           {faqs.map((faq, idx) => {
             const isOpen = openIndex === idx;
@@ -63,41 +49,44 @@ export function FaqSection() {
               <div 
                 key={idx}
                 style={{
-                  background: "var(--cl-card, #f8f9fa)",
-                  border: `1px solid ${isOpen ? t.accent : t.line}`,
+                  background: "var(--cl-card, #ffffff)",
+                  border: `1px solid ${isOpen ? "var(--cl-accent, #f59e0b)" : "var(--cl-line, rgba(0,0,0,0.08))"}`,
                   borderRadius: 16,
                   overflow: "hidden",
-                  transition: "all 0.3s ease"
+                  boxShadow: isOpen ? "0 8px 24px -6px rgba(245, 158, 11, 0.15)" : "0 2px 8px rgba(0,0,0,0.02)",
+                  transition: "all 0.25s ease"
                 }}
               >
                 <button
                   onClick={() => setOpenIndex(isOpen ? null : idx)}
                   style={{
                     width: "100%",
-                    padding: "20px 24px",
+                    padding: "18px 22px",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "space-between",
                     background: "none",
                     border: "none",
-                    color: t.textBase,
+                    color: "var(--cl-text-base, #09090b)",
                     fontSize: 16,
                     fontWeight: 600,
                     textAlign: "left",
                     cursor: "pointer",
-                    fontFamily: t.fontBody
+                    fontFamily: t.fontBody,
+                    gap: 12
                   }}
                 >
                   <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-                    <span style={{ fontSize: 20 }}>🛡️</span>
-                    {faq.q}
+                    <span style={{ fontSize: 18, flexShrink: 0 }}>🛡️</span>
+                    <span style={{ lineHeight: 1.45 }}>{faq.q}</span>
                   </div>
                   <span style={{ 
                     transform: isOpen ? "rotate(180deg)" : "rotate(0deg)", 
-                    transition: "transform 0.3s ease",
-                    color: t.accent,
-                    fontSize: 20,
-                    fontWeight: 300
+                    transition: "transform 0.25s ease",
+                    color: "var(--cl-accent, #f59e0b)",
+                    fontSize: 18,
+                    fontWeight: 700,
+                    flexShrink: 0
                   }}>
                     ↓
                   </span>
@@ -107,11 +96,10 @@ export function FaqSection() {
                   maxHeight: isOpen ? 500 : 0, 
                   opacity: isOpen ? 1 : 0,
                   transition: "all 0.3s ease",
-                  padding: isOpen ? "0 24px 20px 24px" : "0 24px",
-                  color: "var(--cl-text-body, #374151)",
-                  lineHeight: 1.6,
-                  fontSize: 15,
-                  paddingLeft: 56
+                  padding: isOpen ? "0 24px 20px 52px" : "0 24px",
+                  color: "var(--cl-text-body, #334155)",
+                  lineHeight: 1.7,
+                  fontSize: 15
                 }}>
                   {faq.a}
                 </div>
@@ -119,7 +107,7 @@ export function FaqSection() {
             );
           })}
         </div>
-      </div>
-    </section>
+      </FadeIn>
+    </Sec>
   );
 }

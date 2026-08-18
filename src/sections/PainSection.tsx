@@ -1,7 +1,7 @@
 import React from "react";
 import { useContent } from "../content";
 import { useTheme } from "../theme";
-import { FadeIn, Label, SH, Sec } from "../components/ui";
+import { FadeIn, Label, SH, Sec, Sub } from "../components/ui";
 
 export function PainSection() {
   const c = useContent();
@@ -12,13 +12,11 @@ export function PainSection() {
         <div style={{ textAlign: "center", marginBottom: 44 }}>
           <Label>{c.painLabel}</Label>
           <SH typed>{c.painHeading}</SH>
+          <Sub>{c.painSub}</Sub>
         </div>
       </FadeIn>
       
       <FadeIn delay={100}>
-        <p style={{ fontSize: "clamp(16px, 1.8vw, 18px)", lineHeight: 1.8, color: "var(--cl-text-body, #b0b0b0)", marginBottom: 36, textAlign: "center" }}>
-          {c.painSub}
-        </p>
         <div style={{ display: "flex", flexDirection: "column", gap: 14, marginBottom: 48 }}>
           {c.pains.map((p: string, i: number) => (
             <div key={i} style={{ 

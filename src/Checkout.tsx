@@ -35,8 +35,8 @@ const LANTAN_FAQS = [
     a: "Khóa học thiết kế dạng Micro-learning (10-15 phút/video bài giảng). Bạn học đến đâu áp dụng thực hành ngay đến đó. Mục tiêu tối thượng của khóa là giúp bạn tiết kiệm 80% thời gian làm việc hàng ngày."
   },
   {
-    q: "5. \"Tôi có được hỗ trợ khi gặp lỗi kỹ thuật hay cài đặt Agent không?\"",
-    a: "Có! Bạn được tham gia cộng đồng Skool độc quyền trọn đời và có đặc quyền hỗ trợ trực tiếp 1-1 qua Zalo cùng Thầy Việt để giải đáp mọi thắc mắc trong quá trình thực hành."
+    q: "5. \"Ngoài 499k này, tôi có phải tốn thêm chi phí phần mềm hay tài khoản gì không?\"",
+    a: "Hoàn toàn minh bạch: Toàn bộ công cụ chạy thẳng trên tài khoản Google chính chủ của bạn, không phải mua tool lạ hay nuôi app đắt đỏ. Hệ thống dùng lõi Google Gemini để thực thi — bạn có thể kích hoạt gói trải nghiệm miễn phí của Google để làm video ra tiền ngay mà chưa tốn thêm đồng nào."
   }
 ];
 
@@ -132,7 +132,7 @@ function Lbl({ children }: { children: React.ReactNode }) {
 function H({ children }: { children: React.ReactNode }) {
   const t = useTheme();
   return (
-    <h2 style={{ fontFamily: t.fontDisplay, fontSize: "clamp(18px, 3vw, 24px)", fontWeight: 500, lineHeight: 1.15, letterSpacing: "-0.018em", margin: "0 0 18px", color: t.textBase ?? "#fff" }}>
+    <h2 className="cl-sh">
       {children}
     </h2>
   );
@@ -166,7 +166,7 @@ function PaymentSuccessModal({ onClose }: { onClose: () => void }) {
             <IconCheck accent={t.accent} />
           </div>
         </div>
-        <h2 style={{ fontFamily: t.fontDisplay, fontSize: "clamp(22px,4vw,30px)", fontWeight: 500, lineHeight: 1.15, letterSpacing: "-0.018em", color: t.textBase ?? "#fff", margin: "0 0 12px" }}>
+        <h2 className="cl-sh">
           Thanh toán thành công!
         </h2>
         <p style={{ fontSize: 15, color: t.textBody ?? "#aaa", lineHeight: 1.75, margin: "0 0 24px" }}>
@@ -208,7 +208,7 @@ function ConfirmBanner({ onReset }: { onReset: () => void }) {
         }}>
           <IconCheck accent={t.accent} />
         </div>
-      <h2 style={{ fontFamily: t.fontDisplay, fontSize: "clamp(22px, 4vw, 28px)", fontWeight: 500, lineHeight: 1.15, letterSpacing: "-0.018em", marginBottom: 12, color: t.textBase ?? "#fff" }}>
+      <h2 className="cl-sh">
         Cảm ơn bạn đã chuyển khoản!
       </h2>
       <p style={{ fontSize: 15, color: t.textBody ?? "#aaa", lineHeight: 1.75, maxWidth: 460, margin: "0 auto 24px" }}>
@@ -520,7 +520,7 @@ function GuaranteeBox() {
       <div style={{ background: t.card2, border: `1px solid ${t.accent}33`, borderRadius: Math.max(8, t.cardRadius - 4), padding: "16px 18px" }}>
         <p style={{ fontSize: 15, fontWeight: 500, color: t.accent, marginBottom: 8 }}>🛡️ Đồng hành & Gỡ rối 1-1 cùng giảng viên</p>
         <p style={{ fontSize: 15, color: t.textBody ?? "#666", lineHeight: 1.65, margin: 0 }}>
-          Bất kể bạn gặp khó khăn ở bước nào — từ thiết lập Mega Prompt, cài đặt Agent AI, sửa phụ đề tự động đến tạo landing page — hãy nhắn cho mình để nhận ngay lịch gọi Zoom trực tiếp gỡ rối và tối ưu hóa 1-1.
+          Bất kể bạn gặp khó khăn ở bước nào — từ bóc kịch bản clip hay, cài đặt trợ lý dựng video tự động đến vận hành trang web bán hàng — hãy nhắn cho mình để nhận ngay lịch gọi Zoom trực tiếp gỡ rối và hỗ trợ 1-1.
         </p>
       </div>
     </div>
@@ -728,14 +728,14 @@ function CheckoutContent() {
         {/* ── DECISION CONFIRMATION ── */}
         <div style={{ textAlign: "center", padding: "40px 0 0" }}>
           <Lbl>Xác nhận quyết định</Lbl>
-          <h1 style={{ fontFamily: t.fontDisplay, fontSize: "clamp(22px, 4.2vw, 38px)", fontWeight: 500, lineHeight: 1.15, letterSpacing: "-0.018em", margin: "0 0 14px", color: t.textBase ?? "#fff" }}>
+          <h1 className="cl-sh">
             Bạn đang hoàn tất đơn hàng<br />
             <em style={{ color: t.accent, fontStyle: "normal", fontWeight: 500 }}>
-              {(c as any).checkoutTitle ? <span dangerouslySetInnerHTML={{ __html: (c as any).checkoutTitle }} /> : <>Hệ Thống Agent AI:<br />AI Creator System</>}
+              {(c as any).checkoutTitle ? <span dangerouslySetInnerHTML={{ __html: (c as any).checkoutTitle }} /> : <>Gói Bàn Giao 3 Trợ Lý AI Cho Video</>}
             </em>
           </h1>
           <p style={{ fontSize: 15, color: t.textMuted ?? "#888", maxWidth: 520, margin: "0 auto 12px", lineHeight: 1.6 }}>
-            Chỉ còn một bước nữa — chuyển khoản và truy cập ngay toàn bộ khóa học + 5 bài học quà tặng trong hôm nay.
+            Chỉ còn một bước nữa — chuyển khoản và nhận ngay toàn bộ 3 công cụ làm sẵn + video hướng dẫn thực chiến hôm nay.
           </p>
           <div style={{ display: "inline-flex", alignItems: "center", gap: 8, background: t.card2, border: `1px solid ${GREEN}33`, borderRadius: 50, padding: "8px 20px" }}>
             <span style={{ color: GREEN, fontSize: 14 }}>✓</span>
@@ -772,8 +772,8 @@ function CheckoutContent() {
               <Lbl>Thông tin đơn hàng</Lbl>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 14 }}>
                 <div>
-                  <div style={{ fontWeight: 500, fontSize: 16, color: t.textBase ?? "#fff" }}>Masterclass AI Creator System</div>
-                  <div style={{ fontSize: 15, color: t.textMuted ?? "#666", marginTop: 4 }}>4 Tuần Xây Hệ Thống AI Riêng</div>
+                  <div style={{ fontWeight: 500, fontSize: 16, color: t.textBase ?? "#fff" }}>Gói Bàn Giao 3 Trợ Lý AI Cho Video</div>
+                  <div style={{ fontSize: 15, color: t.textMuted ?? "#666", marginTop: 4 }}>Bàn giao 3 công cụ làm sẵn + Hướng dẫn 1-1</div>
                 </div>
                 <div style={{ textAlign: "right" }}>
                   <div style={{ fontSize: 15, color: t.accent, fontWeight: 500 }}>Tiết kiệm {formattedSaving} VNĐ</div>
@@ -787,31 +787,28 @@ function CheckoutContent() {
               <Lbl>Bạn nhận được gì ngay hôm nay</Lbl>
               <H>Truy cập ngay sau xác nhận</H>
               {((c as any).checkoutFeatures || [
-                "Masterclass 'AI Creator System' 4 Tuần",
-                "Quyền sở hữu vĩnh viễn — học mọi lúc, mọi nơi, mọi thiết bị",
-                "Bộ 50+ Mega Prompt cho Video",
-                "Agent Phân Tích Video Tự Động",
-                "Agent Sửa Phụ Đề CapCut",
-                "Template Landing Page Tự Động",
-                "Cộng đồng Skool Trọn Đời",
+                "Công cụ bóc kịch bản clip hay (Kịch bản phân cảnh 2 cột trong 5 phút)",
+                "Trợ lý Dựng video tự động (Gọt đoạn ngập ngừng, phụ đề chuyển động & cảnh trám)",
+                "Mẫu web bán hàng tự động (QR tự nhận tiền & gửi bài 24/7)",
+                "Quyền truy cập cộng đồng trọn đời & Thầy Nguyễn Đức Việt hỗ trợ 1-1",
               ]).map((item: string, i: number) => <Ck key={i}>{item}</Ck>)}
             </Card>
 
             {/* BONUS STACK */}
             <Card>
-              <Lbl>🎁 5 Bonus Đặc Quyền</Lbl>
-              <H><em>Trị giá 7.990.000 VNĐ — tặng kèm miễn phí</em></H>
+              <Lbl>🎁 Trọn Bộ Công Cụ & Quà Tặng Bàn Giao</Lbl>
+              <H><em>Trị giá 12.990.000 VNĐ — Bàn giao trọn gói</em></H>
               {c.bonusItems.map((b, i) => {
-                const bonusPrices = ["1.500.000", "2.000.000", "990.000", "1.500.000", "2.000.000"];
-                const bonusPrice = bonusPrices[i] || "1.000.000";
+                const bonusPrices = ["2.500.000", "3.990.000", "4.500.000", "2.000.000"];
+                const bonusPrice = bonusPrices[i] || "2.000.000";
                 return (
                   <div key={i} style={{ display: "flex", gap: 14, marginBottom: 16, alignItems: "flex-start" }}>
                     <span style={{ fontSize: 24, flexShrink: 0 }}>
-                      {i === 0 ? "🤖" : i === 1 ? "📊" : i === 2 ? "✂️" : i === 3 ? "🌐" : "👥"}
+                      {i === 0 ? "📝" : i === 1 ? "🎬" : i === 2 ? "💳" : "👥"}
                     </span>
                     <div>
-                      <div style={{ fontWeight: 500, fontSize: 15, marginBottom: 4 }}>BONUS {i + 1}: {b.title}</div>
-                      <div style={{ fontSize: 15, color: t.textMuted ?? "#555" }}>Trị giá: <s>{bonusPrice} VNĐ</s> — <span style={{ color: GREEN }}>Tặng miễn phí</span></div>
+                      <div style={{ fontWeight: 500, fontSize: 15, marginBottom: 4 }}>0{i + 1}. {b.title}</div>
+                      <div style={{ fontSize: 15, color: t.textMuted ?? "#555" }}>Trị giá thực tế: <s>{bonusPrice} VNĐ</s> — <span style={{ color: GREEN }}>Bàn giao trọn gói</span></div>
                     </div>
                   </div>
                 );
@@ -890,7 +887,7 @@ function CheckoutContent() {
         {/* ── FINAL CTA BAR ── */}
         <div style={{ marginTop: 40, background: `linear-gradient(135deg, ${t.card}, ${t.card2})`, border: `1px solid ${t.accent}33`, borderRadius: t.cardRadius, padding: "32px 24px", textAlign: "center" }}>
           <Lbl>Bước cuối cùng</Lbl>
-          <h2 style={{ fontFamily: t.fontDisplay, fontSize: "clamp(20px, 3.5vw, 32px)", fontWeight: 500, lineHeight: 1.15, letterSpacing: "-0.018em", margin: "0 0 12px", color: t.textBase ?? "#fff" }}>
+          <h2 className="cl-sh">
             Chuyển khoản ngay và bắt đầu<br /><span style={{ color: t.accent, fontWeight: 500 }}>lột xác hình ảnh chuyên gia hôm nay.</span>
           </h2>
           <p style={{ fontSize: 15, color: t.textBody ?? "#777", marginBottom: 24, lineHeight: 1.65 }}>

@@ -207,6 +207,15 @@ export function SH({ children, center = true, typed = false }: { children: React
   );
 }
 
+export function Sub({ children, center = true, style = {} }: { children: React.ReactNode; center?: boolean; style?: React.CSSProperties }) {
+  if (!children) return null;
+  return (
+    <p className={center ? "cl-sub" : "cl-sub cl-sub--left"} style={style}>
+      {children}
+    </p>
+  );
+}
+
 export function Check({ children, icon = "›", color: colorProp }: { children: React.ReactNode; icon?: string; color?: string }) {
   return (
     <div className="cl-check">

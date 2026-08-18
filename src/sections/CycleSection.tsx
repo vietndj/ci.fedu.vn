@@ -1,7 +1,7 @@
 import React from "react";
 import { useContent } from "../content";
 import { useTheme } from "../theme";
-import { FadeIn, Label, Sec } from "../components/ui";
+import { FadeIn, Label, SH, Sec, Sub } from "../components/ui";
 
 export function CycleSection() {
   const c = useContent();
@@ -11,12 +11,8 @@ export function CycleSection() {
       <FadeIn>
         <div style={{ textAlign: "center", marginBottom: 54 }}>
           <Label>{c.cycleLabel}</Label>
-          <h2 style={{ fontFamily: t.fontDisplay, fontSize: "clamp(26px, 6vw, 48px)", fontWeight: 500, lineHeight: 1.15, letterSpacing: "-0.018em", color: "var(--cl-text-base, #111827)", margin: "16px 0" }}>
-            {c.cycleHeading}
-          </h2>
-          <p style={{ fontSize: "clamp(15px, 3.8vw, 19px)", color: "var(--cl-text-muted, #888)", maxWidth: 720, margin: "0 auto", lineHeight: 1.75 }}>
-            {c.cyclePara}
-          </p>
+          <SH>{c.cycleHeading}</SH>
+          <Sub>{c.cyclePara}</Sub>
         </div>
       </FadeIn>
 
@@ -24,7 +20,7 @@ export function CycleSection() {
         <div style={{
           display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 24, maxWidth: 860, margin: "0 auto"
         }}>
-          {c.cycleItems.map((item, idx) => (
+          {(c.cycleSteps || []).map((item, idx) => (
             <div key={idx} style={{
               background: `linear-gradient(135deg, ${t.accent}0a, transparent)`,
               border: `1px solid ${t.accent}33`,
@@ -48,8 +44,8 @@ export function CycleSection() {
                 pointerEvents: "none",
               }} />
               
-              <div style={{ fontFamily: t.fontMono, fontSize: 12, fontWeight: 600, color: "var(--cl-danger)", letterSpacing: "0.1em", textTransform: "uppercase" }}>
-                ❌ SAI LẦM 0{idx + 1}
+              <div style={{ fontFamily: t.fontMono, fontSize: 12, fontWeight: 600, color: "var(--cl-accent)", letterSpacing: "0.1em", textTransform: "uppercase" }}>
+                // BƯỚC 0{idx + 1}
               </div>
 
               <h3 style={{ 
@@ -60,7 +56,7 @@ export function CycleSection() {
                 margin: "4px 0 8px",
                 letterSpacing: "-0.015em"
               }}>
-                {item.fail}
+                {item.title}
               </h3>
               
               <p style={{ 
@@ -70,7 +66,7 @@ export function CycleSection() {
                 margin: 0,
                 fontWeight: 400 
               }}>
-                {item.why}
+                {item.desc}
               </p>
             </div>
           ))}

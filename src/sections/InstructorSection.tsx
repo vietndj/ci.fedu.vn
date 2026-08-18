@@ -10,13 +10,31 @@ export function InstructorSection() {
   const stats = [
     { num: "1.000+", label: "Học viên & Creator ứng dụng" },
     { num: "15 năm", label: "Giảng viên FPT Arena Multimedia" },
-    { num: "100+", label: "Workflow & Agent AI thực chiến" },
+    { num: "100+", label: "Workflow AI thực chiến" },
+  ];
+
+  const highlights = c.instructorHighlights ?? [
+    {
+      icon: "🎯",
+      title: "Biến Gemini thành thợ thực thi:",
+      desc: "Tự bóc kịch bản viral, tự gọt vấp và tự lên chữ nhảy — không lý thuyết suông."
+    },
+    {
+      icon: "⚡",
+      title: "Làm sẵn 80% — Cắm là chạy:",
+      desc: "Vận hành thẳng trên Google cá nhân, chỉ cần nhắn lệnh tiếng Việt là AI làm thay."
+    },
+    {
+      icon: "🤝",
+      title: "Trực tiếp gỡ vướng khi thực hành:",
+      desc: "Kẹt thao tác nào nhắn là được chỉ ngay, không để bạn phải tự mò mẫm một mình."
+    }
   ];
 
   return (
-    <Sec maxWidth={900}>
+    <Sec maxWidth={940}>
       <FadeIn>
-        <div style={{ textAlign: "center", marginBottom: 48 }}>
+        <div style={{ textAlign: "center", marginBottom: 40 }}>
           <Label>{c.instructorLabel}</Label>
           <SH typed>{c.instructorHeading}</SH>
         </div>
@@ -24,10 +42,10 @@ export function InstructorSection() {
 
       <FadeIn delay={100}>
         <div className="cl-glow-card" style={{
-          padding: "clamp(24px, 6vw, 48px)",
+          padding: "clamp(24px, 5vw, 40px)",
           display: "flex",
-          gap: "clamp(24px, 5vw, 44px)",
-          alignItems: "center",
+          gap: "clamp(24px, 4vw, 40px)",
+          alignItems: "flex-start",
           flexWrap: "wrap",
         }}>
           {/* Avatar / Profile Column */}
@@ -35,9 +53,9 @@ export function InstructorSection() {
             <div style={{
               borderRadius: 24,
               overflow: "hidden",
-              border: `2px solid ${t.accent}66`,
-              boxShadow: `0 0 35px -8px ${t.accent}44`,
-              marginBottom: 16,
+              border: `2px solid ${t.accent}55`,
+              boxShadow: `0 0 30px -6px ${t.accent}33`,
+              marginBottom: 14,
               background: "#14151f"
             }}>
               <img
@@ -47,65 +65,96 @@ export function InstructorSection() {
                 style={{ width: "100%", display: "block" }}
               />
             </div>
-            <div style={{ fontFamily: t.fontDisplay, fontSize: 22, fontWeight: 700, color: "var(--cl-text-base, #111827)", marginBottom: 4 }}>
+            <div style={{ fontFamily: t.fontDisplay, fontSize: 21, fontWeight: 700, color: "var(--cl-text-base, #111827)", marginBottom: 4 }}>
               {c.instructorName}
             </div>
-            <div style={{ fontSize: 13, color: t.accent, fontWeight: 600, marginBottom: 12 }}>
+            <div style={{ fontSize: 13, color: t.accent, fontWeight: 600, marginBottom: 12, lineHeight: 1.4 }}>
               {c.instructorTitle}
             </div>
             <div style={{
-              display: "inline-block", background: "rgba(16, 185, 129, 0.12)", border: "1px solid rgba(16, 185, 129, 0.4)",
-              borderRadius: 30, padding: "4px 12px", fontSize: 12, color: "#10b981", fontWeight: 600,
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 6,
+              background: "rgba(16, 185, 129, 0.12)",
+              border: "1px solid rgba(16, 185, 129, 0.35)",
+              borderRadius: 30,
+              padding: "5px 14px",
+              fontSize: 12.5,
+              color: "#10b981",
+              fontWeight: 600,
             }}>
-              ✨ Trực Tiếp Mentoring 1-1
+              {c.instructorBadge ?? "💬 Trực Tiếp Giải Đáp Qua Zalo"}
             </div>
           </div>
 
-          {/* Details & Quote Column */}
-          <div style={{ flex: 1, minWidth: 280, display: "flex", flexDirection: "column", gap: 20 }}>
-            {/* Playfair Display Serif Quote */}
-            <div style={{
-              background: "rgba(243, 103, 22, 0.05)",
-              borderLeft: `4px solid ${t.accent}`,
-              padding: "16px 20px",
-              borderRadius: "0 16px 16px 0",
-            }}>
+          {/* Details & Highlights Column */}
+          <div style={{ flex: 1, minWidth: 290, display: "flex", flexDirection: "column", gap: 16 }}>
+            {/* Bio Lead */}
+            {c.instructorBio?.[0] && (
               <p style={{
-                fontFamily: t.fontAccent,
-                fontStyle: "italic",
-                fontSize: "clamp(16px, 2.2vw, 19px)",
-                lineHeight: 1.6,
+                fontSize: 15.5,
+                lineHeight: 1.65,
                 color: "var(--cl-text-base, #111827)",
-                fontWeight: 300,
+                fontWeight: 500,
                 margin: 0,
               }}>
-                "AI không thay thế bạn. AI giúp bạn nhân bản năng lực sáng tạo và tự động hóa 80% công việc lặp lại để bạn tập trung tạo ra giá trị."
+                {c.instructorBio[0]}
               </p>
-            </div>
+            )}
 
-            {/* Bio paragraphs */}
-            {c.instructorBio.map((paragraph, i) => (
-              <p key={i} style={{ fontSize: 15, lineHeight: 1.7, color: "var(--cl-text-body, #b0b0b0)", margin: 0 }}>
-                {paragraph}
-              </p>
-            ))}
+            {/* 3 Key Highlight Action Blocks */}
+            <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+              {highlights.map((item, i) => (
+                <div
+                  key={i}
+                  style={{
+                    display: "flex",
+                    alignItems: "flex-start",
+                    gap: 12,
+                    padding: "12px 14px",
+                    borderRadius: 12,
+                    background: "rgba(245, 158, 11, 0.04)",
+                    border: "1px solid rgba(245, 158, 11, 0.12)",
+                  }}
+                >
+                  <div style={{
+                    width: 28,
+                    height: 28,
+                    borderRadius: 8,
+                    background: "rgba(245, 158, 11, 0.14)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    fontSize: 15,
+                    flexShrink: 0,
+                    marginTop: 1,
+                  }}>
+                    {item.icon}
+                  </div>
+                  <div style={{ fontSize: 14.5, lineHeight: 1.55 }}>
+                    <strong style={{ color: "var(--cl-text-base, #111827)", fontWeight: 700 }}>{item.title} </strong>
+                    <span style={{ color: "var(--cl-text-body, #64748b)" }}>{item.desc}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
 
             {/* Stats Row */}
             <div style={{
               display: "grid",
               gridTemplateColumns: "repeat(3, 1fr)",
-              gap: 12,
-              marginTop: 12,
-              paddingTop: 20,
-              borderTop: "1px solid rgba(255, 255, 255, 0.08)",
+              gap: 10,
+              marginTop: 6,
+              paddingTop: 16,
+              borderTop: "1px solid var(--cl-line, #e2e8f0)",
               textAlign: "center"
             }}>
               {stats.map((st, i) => (
-                <div key={i}>
-                  <div style={{ fontSize: "clamp(18px, 3vw, 24px)", fontWeight: 800, color: t.accent }}>
+                <div key={i} style={{ padding: "6px 4px" }}>
+                  <div style={{ fontSize: "clamp(17px, 2.5vw, 22px)", fontWeight: 800, color: t.accent, lineHeight: 1.2 }}>
                     {st.num}
                   </div>
-                  <div style={{ fontSize: 11, color: "#888", marginTop: 2, lineHeight: 1.3 }}>
+                  <div style={{ fontSize: 11.5, color: "var(--cl-text-muted, #888)", marginTop: 4, lineHeight: 1.3 }}>
                     {st.label}
                   </div>
                 </div>
