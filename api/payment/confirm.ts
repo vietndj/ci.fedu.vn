@@ -46,8 +46,10 @@ export default async function handler(
     const customerEmail = updateData.email || email;
     const customerName = updateData.name || name;
 
-    // Trigger Make.com webhook if email exists
-    if (customerEmail) {
+    const isManual = transactionId.startsWith("MANUAL_");
+
+    // Trigger Make.com webhook if email exists AND it's a REAL transaction (not MANUAL)
+    if (customerEmail && !isManual) {
       console.log(`Triggering Make.com webhook for Skool automation for ${customerEmail}...`);
       try {
         const makeRes = await fetch(MAKE_WEBHOOK_URL, {
@@ -74,7 +76,6 @@ export default async function handler(
     const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID || "2050406425";
 
     if (TELEGRAM_BOT_TOKEN && TELEGRAM_CHAT_ID) {
-      const isManual = transactionId.startsWith("MANUAL_");
       let tgMessage = "";
       if (isManual) {
         tgMessage = `⚠️ *Khách bấm nút nhưng CHƯA CK (hoặc SePay chưa báo)*\n👤 Tên: ${customerName}\n📞 SĐT: ${phone}\n✉️ Email: ${customerEmail}`;
@@ -83,7 +84,7 @@ export default async function handler(
       }
 
       try {
-        await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+        const tgRes = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
@@ -92,6 +93,10 @@ export default async function handler(
             parse_mode: "Markdown"
           })
         });
+        if (!tgRes.ok) {
+          const text = await tgRes.text();
+          console.error("Telegram API Error:", text);
+        }
       } catch (tgErr) {
         console.error("Failed to send Telegram message:", tgErr);
       }

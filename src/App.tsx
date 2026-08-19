@@ -47,22 +47,15 @@ function StickyRegisterBar() {
 
   const handleRegisterClick = (e: React.MouseEvent) => {
     e.preventDefault();
-    const raw = localStorage.getItem("video_customer");
-    const customer = raw ? JSON.parse(raw) : null;
-    if (customer && customer.name && customer.email && customer.phone) {
-      window.location.href = "/checkout";
+    const formEl = document.getElementById("dang-ky");
+    if (formEl) {
+      formEl.scrollIntoView({ behavior: "smooth" });
+      setTimeout(() => {
+        const firstInput = formEl.querySelector("input");
+        if (firstInput) firstInput.focus();
+      }, 500);
     } else {
-      const formEl = document.getElementById("dang-ky");
-      if (formEl) {
-        formEl.scrollIntoView({ behavior: "smooth" });
-        // Optional: focus the first input to make it obvious
-        setTimeout(() => {
-          const firstInput = formEl.querySelector("input");
-          if (firstInput) firstInput.focus();
-        }, 500);
-      } else {
-        window.location.href = "/checkout"; // fallback
-      }
+      window.location.href = "/checkout"; // fallback
     }
   };
 
