@@ -12,7 +12,7 @@ export function RoadmapSection() {
   const navLabels = [
     { n: "Chặng 1", time: "3 Phút", short: "Mở Khóa & Kích Hoạt", desc: "Cắm thẳng vào Google Drive" },
     { n: "Chặng 2", time: "15 Phút", short: "Thử Nghiệm Clip Đầu Tiên", desc: "AI gọt vấp & làm chữ nhảy" },
-    { n: "Chặng 3", time: "24/7", short: "Bật Web & Thầy Đồng Hành", desc: "Nhận tiền VietQR & hỗ trợ 1-1" },
+    { n: "Chặng 3", time: "24/7", short: "Tự Tạo Web Bán Bất Cứ Thứ Gì", desc: "Nội dung & sản phẩm theo ý bạn" },
   ];
 
   // Observer to track which card is currently visible on the right stream as user scrolls

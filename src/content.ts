@@ -454,7 +454,7 @@ export const DEFAULT_CONTENT: PageContent = {
     { 
       n: "Chặng 3", 
       time: "24/7 TỰ ĐỘNG",
-      title: "💳 Bật Web Bán Hàng & Thầy Việt Đồng Hành", 
+      title: "💳 Tự tạo web bán bất cứ thứ gì, nội dung theo ý bạn", 
       desc: "Gắn số tài khoản ngân hàng của bạn vào web có sẵn để tự động nhận tiền 24/7. Trong suốt quá trình làm, có nhóm hỗ trợ thực chiến và thầy Việt hướng dẫn trực tiếp nếu bạn vướng bất kỳ thao tác nào.", 
       sub: "🎯 Kích hoạt cỗ máy thu tiền & Hỗ trợ 1-1",
       highlights: [
