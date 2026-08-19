@@ -50,7 +50,7 @@ export function InstructorSection() {
               marginBottom: 10,
               letterSpacing: "normal"
             }}>
-              Mấy thứ lý thuyết nhảm nhí hay mẹo vặt mất thời gian
+              Mình không nói mấy thứ lý thuyết nhảm nhí hay mẹo vặt mất thời gian
             </span>
             <span style={{ display: "block", color: "var(--cl-text-base)", fontSize: "clamp(24px, 3.8vw, 44px)", lineHeight: 1.25 }}>
               Vào thẳng vấn đề để bạn <em className="cl-serif-accent">làm chủ công cụ</em> ngay hôm nay.
