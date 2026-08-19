@@ -27,7 +27,7 @@ export function FaqSection() {
     },
     {
       q: "Ngoài 499k này, tôi có phải tốn thêm chi phí duy trì tài khoản hay phần mềm gì nữa không?",
-      a: "Hoàn toàn minh bạch: Toàn bộ 3 công cụ vận hành trực tiếp trên tài khoản Google chính chủ của bạn, không phải mua phần mềm lạ hay nuôi các công cụ trôi nổi đắt đỏ ngoài thị trường. Hệ thống dùng lõi Google Gemini để thực thi — bạn có thể kích hoạt gói trải nghiệm miễn phí từ chính Google để cắm vào làm ra video ngay mà chưa tốn thêm đồng nào."
+      a: "Hoàn toàn minh bạch: Toàn bộ 3 công cụ vận hành trực tiếp trên tài khoản Google chính chủ của bạn, không phải mua phần mềm lạ hay nuôi các công cụ trôi nổi đắt đỏ ngoài thị trường. Bạn dùng trực tiếp tài khoản Google thông thường sẵn có để thực thi làm ra video, hoàn toàn không phát sinh chi phí duy trì hàng tháng."
     }
   ];
 

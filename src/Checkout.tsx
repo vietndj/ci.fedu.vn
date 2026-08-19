@@ -36,7 +36,7 @@ const LANTAN_FAQS = [
   },
   {
     q: "5. \"Ngoài 499k này, tôi có phải tốn thêm chi phí phần mềm hay tài khoản gì không?\"",
-    a: "Hoàn toàn minh bạch: Toàn bộ công cụ chạy thẳng trên tài khoản Google chính chủ của bạn, không phải mua tool lạ hay nuôi app đắt đỏ. Hệ thống dùng lõi Google Gemini để thực thi — bạn có thể kích hoạt gói trải nghiệm miễn phí của Google để làm video ra tiền ngay mà chưa tốn thêm đồng nào."
+    a: "Hoàn toàn minh bạch: Toàn bộ công cụ chạy thẳng trên tài khoản Google chính chủ của bạn, không phải mua tool lạ hay nuôi app đắt đỏ. Bạn dùng trực tiếp tài khoản Google thông thường sẵn có để thực thi làm ra video, hoàn toàn không phát sinh chi phí duy trì hàng tháng."
   }
 ];
 
