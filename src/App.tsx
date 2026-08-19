@@ -89,10 +89,10 @@ function StickyRegisterBar() {
           <span>🔥</span> Chỉ cho 100 Tester đầu tiên đợt 1
         </div>
       </div>
-      <a
-        href="/checkout"
+      <div
         onClick={handleRegisterClick}
         style={{
+          cursor: "pointer",
           background: "var(--cl-accent)",
           color: "var(--cl-accent-text)",
           padding: "11px 22px",
@@ -109,7 +109,7 @@ function StickyRegisterBar() {
         onMouseLeave={(e) => { e.currentTarget.style.opacity = "1"; }}
       >
         SỞ HỮU TRỌN BỘ CÔNG CỤ 499K →
-      </a>
+      </div>
     </div>
   );
 }

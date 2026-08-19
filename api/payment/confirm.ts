@@ -78,9 +78,9 @@ export default async function handler(
     if (TELEGRAM_BOT_TOKEN && TELEGRAM_CHAT_ID) {
       let tgMessage = "";
       if (isManual) {
-        tgMessage = `⚠️ *Khách bấm nút nhưng CHƯA CK (hoặc SePay chưa báo)*\n👤 Tên: ${customerName}\n📞 SĐT: ${phone}\n✉️ Email: ${customerEmail}`;
+        tgMessage = `⚠️ <b>Khách bấm nút nhưng CHƯA CK (hoặc SePay chưa báo)</b>\n👤 Tên: ${customerName}\n📞 SĐT: ${phone}\n✉️ Email: ${customerEmail}`;
       } else {
-        tgMessage = `✅ *ĐÃ NHẬN TIỀN THÀNH CÔNG (SePay Confirm)*\n👤 Tên: ${customerName}\n📞 SĐT: ${phone}\n✉️ Email: ${customerEmail}\n🔖 Mã GD: ${transactionId}`;
+        tgMessage = `✅ <b>ĐÃ NHẬN TIỀN THÀNH CÔNG (SePay Confirm)</b>\n👤 Tên: ${customerName}\n📞 SĐT: ${phone}\n✉️ Email: ${customerEmail}\n🔖 Mã GD: ${transactionId}`;
       }
 
       try {
@@ -90,7 +90,7 @@ export default async function handler(
           body: JSON.stringify({
             chat_id: TELEGRAM_CHAT_ID,
             text: tgMessage,
-            parse_mode: "Markdown"
+            parse_mode: "HTML"
           })
         });
         if (!tgRes.ok) {
