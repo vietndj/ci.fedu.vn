@@ -109,6 +109,28 @@ export default async function handler(
       console.warn(`[SePay Webhook] Customer email not found for phone ${phone}. Cannot trigger Make.com email.`);
     }
 
+    // Trigger Telegram notification
+    const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN || "8547666953:AAGm6a5KFoGmmMfyitlFXxCdZdH9cN0d-DE";
+    const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID || "2050406425";
+    const escHtml = (s: string) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+
+    if (TELEGRAM_BOT_TOKEN && TELEGRAM_CHAT_ID) {
+      const tgMessage = `✅ <b>ĐÃ NHẬN TIỀN THÀNH CÔNG (SePay Webhook)</b>\n👤 Tên: ${escHtml(customerName)}\n📞 SĐT: ${escHtml(phone)}\n✉️ Email: ${escHtml(customerEmail || "Chưa lấy được email")}\n🔖 Mã GD: ${escHtml(transactionId)}\n💰 Số tiền: 499.000đ`;
+      try {
+        await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            chat_id: TELEGRAM_CHAT_ID,
+            text: tgMessage,
+            parse_mode: "HTML"
+          })
+        });
+      } catch (tgErr) {
+        console.error("[SePay Webhook] Telegram send error:", tgErr);
+      }
+    }
+
     // ALWAYS return 200 OK so SePay clears the transaction from its retry Queue!
     return res.status(200).json({
       success: true,
