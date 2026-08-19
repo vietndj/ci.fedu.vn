@@ -45,6 +45,27 @@ function StickyRegisterBar() {
 
   if (!show) return null;
 
+  const handleRegisterClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const raw = localStorage.getItem("video_customer");
+    const customer = raw ? JSON.parse(raw) : null;
+    if (customer && customer.name && customer.email && customer.phone) {
+      window.location.href = "/checkout";
+    } else {
+      const formEl = document.getElementById("dang-ky");
+      if (formEl) {
+        formEl.scrollIntoView({ behavior: "smooth" });
+        // Optional: focus the first input to make it obvious
+        setTimeout(() => {
+          const firstInput = formEl.querySelector("input");
+          if (firstInput) firstInput.focus();
+        }, 500);
+      } else {
+        window.location.href = "/checkout"; // fallback
+      }
+    }
+  };
+
   return (
     <div style={{
       position: "fixed",
@@ -77,6 +98,7 @@ function StickyRegisterBar() {
       </div>
       <a
         href="/checkout"
+        onClick={handleRegisterClick}
         style={{
           background: "var(--cl-accent)",
           color: "var(--cl-accent-text)",
@@ -172,7 +194,7 @@ export default function App() {
           borderTop: "1.5px solid rgba(255, 255, 255, 0.18)",
           boxShadow: "0 -30px 80px -10px rgba(0, 0, 0, 0.6), 0 -4px 20px rgba(0, 0, 0, 0.15)",
           paddingTop: "60px",
-          paddingBottom: "100px",
+          paddingBottom: "140px",
           willChange: "box-shadow",
         }}
       >

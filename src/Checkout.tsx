@@ -132,7 +132,7 @@ function Lbl({ children }: { children: React.ReactNode }) {
 function H({ children }: { children: React.ReactNode }) {
   const t = useTheme();
   return (
-    <h2 className="cl-sh">
+    <h2 className="cl-sh" style={{ fontSize: "clamp(24px, 4vw, 36px)" }}>
       {children}
     </h2>
   );
@@ -166,7 +166,7 @@ function PaymentSuccessModal({ onClose }: { onClose: () => void }) {
             <IconCheck accent={t.accent} />
           </div>
         </div>
-        <h2 className="cl-sh">
+        <h2 className="cl-sh" style={{ fontSize: "clamp(24px, 4vw, 36px)" }}>
           Thanh toán thành công!
         </h2>
         <p style={{ fontSize: 15, color: t.textBody ?? "#aaa", lineHeight: 1.75, margin: "0 0 24px" }}>
@@ -178,7 +178,7 @@ function PaymentSuccessModal({ onClose }: { onClose: () => void }) {
           <p style={{ fontSize: 13, color: t.textMuted ?? "#555" }}>Vui lòng kiểm tra hộp thư (kể cả Spam) sau vài phút nhé!</p>
         </div>
         <div style={{ background: t.card2, borderRadius: Math.max(8, t.cardRadius - 4), padding: "14px 20px", marginBottom: 24 }}>
-          {["🎬 Masterclass AI Creator System", `🎁 ${c.valueStack.length > 1 ? c.valueStack[1].label : "Quà Tặng Độc Quyền"}`, "♾ Sở hữu vĩnh viễn"].map((item) => (
+          {["🎬 Gói Bàn Giao 3 Trợ Lý AI Cho Video", "🎁 Trọn bộ 3 công cụ tự động hóa & web bán hàng", "♾ Hỗ trợ Zalo 1-1 & Sở hữu vĩnh viễn"].map((item) => (
             <div key={item} style={{ fontSize: 15, color: t.textBody ?? "#b0b0b0", padding: "4px 0", textAlign: "left" }}>{item}</div>
           ))}
         </div>
@@ -208,14 +208,14 @@ function ConfirmBanner({ onReset }: { onReset: () => void }) {
         }}>
           <IconCheck accent={t.accent} />
         </div>
-      <h2 className="cl-sh">
+      <h2 className="cl-sh" style={{ fontSize: "clamp(24px, 4vw, 36px)" }}>
         Cảm ơn bạn đã chuyển khoản!
       </h2>
       <p style={{ fontSize: 15, color: t.textBody ?? "#aaa", lineHeight: 1.75, maxWidth: 460, margin: "0 auto 24px" }}>
         Chúng tôi đang xác minh giao dịch. Bạn sẽ nhận được tài liệu qua email <strong style={{ color: "var(--cl-text-base, #111827)" }}>trong vòng 30 phút</strong> (giờ hành chính).
       </p>
       <div style={{ display: "inline-flex", flexDirection: "column", gap: 10, background: t.card, border: `1px solid ${t.line}`, borderRadius: Math.max(8, t.cardRadius - 4), padding: "20px 24px", marginBottom: 20, textAlign: "left" }}>
-        {["🎬 Masterclass AI Creator System", `🎁 ${c.valueStack.length > 1 ? c.valueStack[1].label : "Quà Tặng Độc Quyền"}`, "♾ Sở hữu vĩnh viễn"].map((item) => (
+        {["🎬 Gói Bàn Giao 3 Trợ Lý AI Cho Video", "🎁 Trọn bộ 3 công cụ tự động hóa & web bán hàng", "♾ Hỗ trợ Zalo 1-1 & Sở hữu vĩnh viễn"].map((item) => (
           <span key={item} style={{ fontSize: 15, color: t.textBody ?? "#c0c0c0" }}>{item}</span>
         ))}
       </div>
@@ -562,15 +562,42 @@ function CheckoutContent() {
   }, [priceVal]);
 
   const handleManualConfirm = async () => {
+    const raw = localStorage.getItem("video_customer");
+    const cust = raw ? JSON.parse(raw) as { name?: string; phone?: string; email?: string; url?: string } : {};
+    
+    // 1. Chặn khách chưa điền Form
+    if (!cust.phone || !cust.name || !cust.email) {
+      alert("Vui lòng điền thông tin đăng ký trước khi xác nhận chuyển khoản để hệ thống có thông tin gửi tài liệu!");
+      window.location.href = "/";
+      return;
+    }
+
+    // 2. Chặn Spam click liên tục (Cooldown 3 phút)
+    const lastConfirm = sessionStorage.getItem("video_manual_confirm_time");
+    if (lastConfirm && Date.now() - parseInt(lastConfirm) < 3 * 60 * 1000) {
+      alert("Hệ thống đang xử lý yêu cầu trước đó của bạn. Vui lòng chờ 3 phút để hệ thống đối soát giao dịch.");
+      setConfirmed(true);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+
+    sessionStorage.setItem("video_manual_confirm_time", Date.now().toString());
+
+    alert("Cảm ơn bạn! Chúng tôi đã ghi nhận yêu cầu và đang kiểm tra giao dịch. Vui lòng chờ hệ thống xác nhận trong vài phút.");
     setConfirmed(true);
+    window.scrollTo({ top: 0, behavior: "smooth" });
 
     // Bắn sự kiện Purchase Meta Pixel khi xác nhận thủ công
-    if (typeof window !== "undefined" && (window as any).fbq) {
-      (window as any).fbq('track', 'Purchase', {
-        value: priceVal || 499000,
-        currency: 'VND',
-        content_name: 'AI Creator System'
-      });
+    try {
+      if (typeof window !== "undefined" && (window as any).fbq) {
+        (window as any).fbq('track', 'Purchase', {
+          value: priceVal || 499000,
+          currency: 'VND',
+          content_name: 'AI Creator System'
+        });
+      }
+    } catch (e) {
+      console.error("Meta Pixel Error:", e);
     }
 
     try {
@@ -887,7 +914,7 @@ function CheckoutContent() {
         {/* ── FINAL CTA BAR ── */}
         <div style={{ marginTop: 40, background: `linear-gradient(135deg, ${t.card}, ${t.card2})`, border: `1px solid ${t.accent}33`, borderRadius: t.cardRadius, padding: "32px 24px", textAlign: "center" }}>
           <Lbl>Bước cuối cùng</Lbl>
-          <h2 className="cl-sh">
+          <h2 className="cl-sh" style={{ fontSize: "clamp(24px, 4vw, 36px)" }}>
             Chuyển khoản ngay và bắt đầu<br /><span style={{ color: t.accent, fontWeight: 500 }}>lột xác hình ảnh chuyên gia hôm nay.</span>
           </h2>
           <p style={{ fontSize: 15, color: t.textBody ?? "#777", marginBottom: 24, lineHeight: 1.65 }}>

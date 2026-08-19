@@ -10,8 +10,8 @@ export default async function handler(
 
   try {
     const { name = "", phone = "", email = "", url = "", transactionId = "", rowIndex } = req.body || {};
-    const GOOGLE_SCRIPT_URL = process.env.GOOGLE_SCRIPT_URL || "https://script.google.com/macros/s/AKfycbz3s4V-cItvUcM3g-oZy0mAWsxGXr9UhLhz_qPgXWZgFNTT9KgKZxu391m-aRv8rz8U/exec";
-    const MAKE_WEBHOOK_URL = process.env.MAKE_WEBHOOK_URL || "https://hook.us2.make.com/mdc9dfwges9r1v06momkpboh9auhrtgu";
+    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz3s4V-cItvUcM3g-oZy0mAWsxGXr9UhLhz_qPgXWZgFNTT9KgKZxu391m-aRv8rz8U/exec";
+    const MAKE_WEBHOOK_URL = "https://hook.us2.make.com/mdc9dfwges9r1v06momkpboh9auhrtgu";
 
     let updateData: any = {};
     if (!GOOGLE_SCRIPT_URL) {
@@ -66,6 +66,34 @@ export default async function handler(
         }
       } catch (makeErr) {
          console.error("Failed to call Make webhook:", makeErr);
+      }
+    }
+
+    // --- TELEGRAM NOTIFICATION ---
+    const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN || "8547666953:AAGm6a5KFoGmmMfyitlFXxCdZdH9cN0d-DE";
+    const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID || "2050406425";
+
+    if (TELEGRAM_BOT_TOKEN && TELEGRAM_CHAT_ID) {
+      const isManual = transactionId.startsWith("MANUAL_");
+      let tgMessage = "";
+      if (isManual) {
+        tgMessage = `⚠️ *Khách bấm nút nhưng CHƯA CK (hoặc SePay chưa báo)*\n👤 Tên: ${customerName}\n📞 SĐT: ${phone}\n✉️ Email: ${customerEmail}`;
+      } else {
+        tgMessage = `✅ *ĐÃ NHẬN TIỀN THÀNH CÔNG (SePay Confirm)*\n👤 Tên: ${customerName}\n📞 SĐT: ${phone}\n✉️ Email: ${customerEmail}\n🔖 Mã GD: ${transactionId}`;
+      }
+
+      try {
+        await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            chat_id: TELEGRAM_CHAT_ID,
+            text: tgMessage,
+            parse_mode: "Markdown"
+          })
+        });
+      } catch (tgErr) {
+        console.error("Failed to send Telegram message:", tgErr);
       }
     }
 

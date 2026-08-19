@@ -82,7 +82,7 @@ export default async function handler(
     if (errorMsg) {
       return res.status(400).json({ error: errorMsg });
     }
-    const GOOGLE_SCRIPT_URL = process.env.GOOGLE_SCRIPT_URL || "https://script.google.com/macros/s/AKfycbz3s4V-cItvUcM3g-oZy0mAWsxGXr9UhLhz_qPgXWZgFNTT9KgKZxu391m-aRv8rz8U/exec";
+    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz3s4V-cItvUcM3g-oZy0mAWsxGXr9UhLhz_qPgXWZgFNTT9KgKZxu391m-aRv8rz8U/exec";
 
     if (!GOOGLE_SCRIPT_URL) {
       console.warn("GOOGLE_SCRIPT_URL is not set. Cannot save to Google Sheets.");

@@ -253,7 +253,7 @@ export function useRoadmapToQuoteTransition(
       }
     };
 
-    // ── 2. One-Scroll Gesture Trigger (Cuộn 1 nhịp là trượt chồng lên ngay tức thì) ──
+    // ── 2. One-Scroll Gesture Trigger (Chậm hơn 1 nhịp: Đọc xong Chặng 3 mới kích hoạt trượt chồng) ──
     const handleWheel = (e: WheelEvent) => {
       if (isTransitioning.current) return;
       const quoteEl = quoteLayerRef.current;
@@ -263,22 +263,23 @@ export function useRoadmapToQuoteTransition(
       const rect = quoteEl.getBoundingClientRect();
       const vh = window.innerHeight;
 
-      // Đang ở đoạn Chặng 3 (Quote đang ở phía dưới chuẩn bị vào tầm mắt) -> Lăn nhẹ chuột xuống -> Trượt lên luôn!
-      if (rect.top > 20 && rect.top <= vh + 250 && e.deltaY > 1) {
+      // Chỉ kích hoạt khi người dùng đã cuộn qua hết Chặng 3 (đỉnh Quote đã vào 65% màn hình) và chủ động lăn tiếp (deltaY > 5)
+      const hasFinishedReadingChapt3 = rect.top <= vh * 0.65 && rect.top > 20;
+      if (hasFinishedReadingChapt3 && e.deltaY > 5) {
         isTransitioning.current = true;
         quoteEl.scrollIntoView({ behavior: "smooth", block: "start" });
         setTimeout(() => {
           isTransitioning.current = false;
-        }, 500);
+        }, 550);
       }
-      // Đang ở đầu Quote Layer -> Lăn nhẹ chuột ngược lên -> Trượt về Chặng 3!
-      else if (rect.top >= -80 && rect.top <= 60 && e.deltaY < -1) {
+      // Đang ở đầu Quote Layer -> Lăn ngược lên để quay lại Chặng 3
+      else if (rect.top >= -60 && rect.top <= 40 && e.deltaY < -5) {
         isTransitioning.current = true;
-        const targetPos = quoteEl.offsetTop - vh + 100;
+        const targetPos = quoteEl.offsetTop - vh + 160;
         window.scrollTo({ top: Math.max(0, targetPos), behavior: "smooth" });
         setTimeout(() => {
           isTransitioning.current = false;
-        }, 500);
+        }, 550);
       }
     };
 
@@ -299,22 +300,23 @@ export function useRoadmapToQuoteTransition(
       const rect = quoteEl.getBoundingClientRect();
       const vh = window.innerHeight;
 
-      // Vuốt lên ở Chặng 3 -> Trượt chồng lên luôn!
-      if (rect.top > 20 && rect.top <= vh + 250 && deltaY > 18) {
+      // Đọc xong Chặng 3 rồi vuốt tiếp -> Trượt chồng lên
+      const hasFinishedReadingChapt3 = rect.top <= vh * 0.65 && rect.top > 20;
+      if (hasFinishedReadingChapt3 && deltaY > 30) {
         isTransitioning.current = true;
         quoteEl.scrollIntoView({ behavior: "smooth", block: "start" });
         setTimeout(() => {
           isTransitioning.current = false;
-        }, 500);
+        }, 550);
       }
-      // Vuốt xuống ở đầu Quote -> Trượt về 3 Chặng!
-      else if (rect.top >= -80 && rect.top <= 60 && deltaY < -18) {
+      // Vuốt xuống ở đầu Quote -> Trượt về 3 Chặng
+      else if (rect.top >= -60 && rect.top <= 40 && deltaY < -30) {
         isTransitioning.current = true;
-        const targetPos = quoteEl.offsetTop - vh + 100;
+        const targetPos = quoteEl.offsetTop - vh + 160;
         window.scrollTo({ top: Math.max(0, targetPos), behavior: "smooth" });
         setTimeout(() => {
           isTransitioning.current = false;
-        }, 500);
+        }, 550);
       }
     };
 
@@ -330,24 +332,25 @@ export function useRoadmapToQuoteTransition(
       const rect = quoteEl.getBoundingClientRect();
       const vh = window.innerHeight;
 
-      if (rect.top > 20 && rect.top <= vh + 250) {
+      const hasFinishedReadingChapt3 = rect.top <= vh * 0.65 && rect.top > 20;
+      if (hasFinishedReadingChapt3) {
         if (e.key === "ArrowDown" || e.key === "PageDown" || e.key === " ") {
           e.preventDefault();
           isTransitioning.current = true;
           quoteEl.scrollIntoView({ behavior: "smooth", block: "start" });
           setTimeout(() => {
             isTransitioning.current = false;
-          }, 500);
+          }, 550);
         }
-      } else if (rect.top >= -80 && rect.top <= 60) {
+      } else if (rect.top >= -60 && rect.top <= 40) {
         if (e.key === "ArrowUp" || e.key === "PageUp") {
           e.preventDefault();
           isTransitioning.current = true;
-          const targetPos = quoteEl.offsetTop - vh + 100;
+          const targetPos = quoteEl.offsetTop - vh + 160;
           window.scrollTo({ top: Math.max(0, targetPos), behavior: "smooth" });
           setTimeout(() => {
             isTransitioning.current = false;
-          }, 500);
+          }, 550);
         }
       }
     };
