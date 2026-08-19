@@ -298,7 +298,7 @@ function PaymentPanel({ bank, qrUrl, onConfirm, onVideoClick }: { bank: BankInfo
           <Countdown hideLabel />
         </div>
       </div>
-      {/* 🎁 [Khối Early Bird FOMO] */}
+      {/* 🎁 [Khối Hỗ trợ trực tiếp từ giảng viên] */}
       <div style={{
         background: "rgba(249, 115, 22, 0.08)",
         border: "1px solid #f97316",
@@ -308,14 +308,14 @@ function PaymentPanel({ bank, qrUrl, onConfirm, onVideoClick }: { bank: BankInfo
         textAlign: "left",
         boxShadow: "0 0 30px rgba(249, 115, 22, 0.2)"
       }}>
-        <div style={{ fontSize: 14, fontWeight: 500, color: "#f97316", textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: 12, textAlign: "center" }}>
-          🎁 HỖ TRỢ TRỰC TIẾP TỪ GIẢNG VIÊN (CHỈ CÒN 9 BẠN)
+        <div style={{ fontSize: 14, fontWeight: 600, color: "#f97316", textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: 10, textAlign: "center" }}>
+          🎁 HỖ TRỢ TRỰC TIẾP TỪ GIẢNG VIÊN
         </div>
-        <p style={{ fontSize: 13, color: "var(--cl-text-base, #111827)", margin: "0 0 10px", lineHeight: 1.5, fontWeight: 500 }}>
-          Đợt này web mới ra mắt nên mình đặc biệt <strong>hỗ trợ Zalo 1-1</strong> cho anh em. Đăng ký xong cứ add Zalo mình, kẹt chỗ nào mình gỡ chỗ đó.
+        <p style={{ fontSize: 13, color: "var(--cl-text-base, #111827)", margin: "0 0 8px", lineHeight: 1.5, fontWeight: 500 }}>
+          Sau khi đăng ký, bạn cứ kết nối Zalo trực tiếp với mình. Kẹt chỗ nào trong quá trình thực hành hay triển khai công cụ, mình hỗ trợ gỡ rối ngay chỗ đó.
         </p>
         <p style={{ fontSize: 12, color: "#f97316", margin: 0, lineHeight: 1.5, fontStyle: "italic" }}>
-          (Mình còn phải đứng lớp trên trường nên quỹ thời gian có hạn, đợt này chỉ dám nhận hỗ trợ 1-1 thêm đúng 9 bạn nữa cho chu đáo. Anh em tranh thủ nhé, thông tin Zalo có trong email kích hoạt!)
+          (Thông tin Zalo cá nhân của mình được gửi kèm trong email kích hoạt ngay sau khi thanh toán!)
         </p>
       </div>
       {/* 📱 [Khối Mã QR & Thanh Toán] (Ở giữa, to nhất) */}
@@ -541,9 +541,26 @@ function CheckoutContent() {
   const [showVideoModal, setShowVideoModal] = useState(false);
   const isMobile = useIsMobile();
 
+  // ── GUARD: Chặn cứng khách chưa điền form ──
   const rawCustomer = localStorage.getItem("video_customer");
-  const customer = rawCustomer ? JSON.parse(rawCustomer) as { phone?: string } : {};
-  const phone = customer.phone || "[SĐT CỦA BẠN]";
+  const customer = rawCustomer ? JSON.parse(rawCustomer) as { name?: string; phone?: string; email?: string } : null;
+
+  useEffect(() => {
+    if (!customer || !customer.name || !customer.email || !customer.phone) {
+      window.location.href = "/";
+    }
+  }, []);
+
+  // Nếu chưa có data, render loading rồi redirect
+  if (!customer || !customer.name || !customer.email || !customer.phone) {
+    return (
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "center", minHeight: "100vh", background: t.bg, color: t.textMuted ?? "#888", fontFamily: t.fontBody }}>
+        <p>Đang chuyển hướng về trang đăng ký...</p>
+      </div>
+    );
+  }
+
+  const phone = customer.phone;
   const prefix = (c as any).transferPrefix || "AICREATOR";
   const transferContent = `${prefix} ${phone}`;
 

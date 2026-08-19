@@ -75,12 +75,15 @@ export default async function handler(
     const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN || "8547666953:AAGm6a5KFoGmmMfyitlFXxCdZdH9cN0d-DE";
     const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID || "2050406425";
 
+    // Escape ký tự đặc biệt HTML cho Telegram API
+    const escHtml = (s: string) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+
     if (TELEGRAM_BOT_TOKEN && TELEGRAM_CHAT_ID) {
       let tgMessage = "";
       if (isManual) {
-        tgMessage = `⚠️ <b>Khách bấm nút nhưng CHƯA CK (hoặc SePay chưa báo)</b>\n👤 Tên: ${customerName}\n📞 SĐT: ${phone}\n✉️ Email: ${customerEmail}`;
+        tgMessage = `⚠️ <b>Khách bấm nút nhưng CHƯA CK (hoặc SePay chưa báo)</b>\n👤 Tên: ${escHtml(customerName)}\n📞 SĐT: ${escHtml(phone)}\n✉️ Email: ${escHtml(customerEmail)}`;
       } else {
-        tgMessage = `✅ <b>ĐÃ NHẬN TIỀN THÀNH CÔNG (SePay Confirm)</b>\n👤 Tên: ${customerName}\n📞 SĐT: ${phone}\n✉️ Email: ${customerEmail}\n🔖 Mã GD: ${transactionId}`;
+        tgMessage = `✅ <b>ĐÃ NHẬN TIỀN THÀNH CÔNG (SePay Confirm)</b>\n👤 Tên: ${escHtml(customerName)}\n📞 SĐT: ${escHtml(phone)}\n✉️ Email: ${escHtml(customerEmail)}\n🔖 Mã GD: ${escHtml(transactionId)}`;
       }
 
       try {

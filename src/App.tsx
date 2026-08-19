@@ -54,8 +54,6 @@ function StickyRegisterBar() {
         const firstInput = formEl.querySelector("input");
         if (firstInput) firstInput.focus();
       }, 500);
-    } else {
-      window.location.href = "/checkout"; // fallback
     }
   };
 
