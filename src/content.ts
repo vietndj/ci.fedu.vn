@@ -129,6 +129,7 @@ export interface PageContent {
 
   instructorLabel: string;
   instructorHeading: string;
+  instructorSub?: string;
   instructorInitials: string;
   instructorName: string;
   instructorTitle: string;
@@ -467,7 +468,8 @@ export const DEFAULT_CONTENT: PageContent = {
 
   // ── Instructor ──
   instructorLabel: "NGƯỜI DẪN ĐƯỜNG",
-  instructorHeading: "Mình không nói mấy thứ nhảm nhí hay mẹo vặt mất thời gian.\nVào thẳng vấn đề để bạn làm chủ công cụ ngay hôm nay.",
+  instructorHeading: "Mấy thứ lý thuyết nhảm nhí hay mẹo vặt mất thời gian\nVào thẳng vấn đề để bạn làm chủ công cụ ngay hôm nay.",
+  instructorSub: "Bởi vì thực sự AI viết prompt tốt hơn người viết và nó chỉ cho bạn cách dùng nó là hiệu quả nhất.",
   instructorInitials: "NĐV",
   instructorName: "Nguyễn Đức Việt",
   instructorTitle: "Kỹ sư Bách Khoa · 15 năm Giảng viên FPT Arena · Founder Fedu.vn",

@@ -1,7 +1,7 @@
 import React from "react";
 import { useContent } from "../content";
 import { useTheme } from "../theme";
-import { FadeIn, Label, SH, Sec } from "../components/ui";
+import { FadeIn, Label, Sec, Sub } from "../components/ui";
 
 export function InstructorSection() {
   const c = useContent();
@@ -34,9 +34,33 @@ export function InstructorSection() {
   return (
     <Sec maxWidth={940}>
       <FadeIn>
-        <div style={{ textAlign: "center", marginBottom: 40 }}>
+        <div style={{ textAlign: "center", marginBottom: 36 }}>
           <Label>{c.instructorLabel}</Label>
-          <SH typed>{c.instructorHeading}</SH>
+          <h2 className="cl-sh" style={{ margin: "0 auto 16px", maxWidth: 820 }}>
+            <span style={{
+              display: "inline-block",
+              fontSize: "clamp(16px, 2vw, 21px)",
+              fontFamily: "var(--cl-font-body)",
+              fontWeight: 450,
+              color: "var(--cl-text-muted)",
+              textDecoration: "line-through",
+              textDecorationColor: "rgba(239, 68, 68, 0.7)",
+              textDecorationThickness: "1.5px",
+              opacity: 0.8,
+              marginBottom: 10,
+              letterSpacing: "normal"
+            }}>
+              Mấy thứ lý thuyết nhảm nhí hay mẹo vặt mất thời gian
+            </span>
+            <span style={{ display: "block", color: "var(--cl-text-base)", fontSize: "clamp(24px, 3.8vw, 44px)", lineHeight: 1.25 }}>
+              Vào thẳng vấn đề để bạn <em className="cl-serif-accent">làm chủ công cụ</em> ngay hôm nay.
+            </span>
+          </h2>
+          {c.instructorSub && (
+            <Sub style={{ maxWidth: 660, margin: "0 auto 12px" }}>
+              {c.instructorSub}
+            </Sub>
+          )}
         </div>
       </FadeIn>
 
