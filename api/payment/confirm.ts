@@ -72,7 +72,7 @@ export default async function handler(
     }
 
     // --- TELEGRAM NOTIFICATION ---
-    const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN || "8547666953:AAGm6a5KFoGmmMfyitlFXxCdZdH9cN0d-DE";
+    const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN || "8964853536:AAHuRNm_hY-YQtveBD1HlmthN4I5xpVzM8U";
     const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID || "2050406425";
 
     // Escape ký tự đặc biệt HTML cho Telegram API
